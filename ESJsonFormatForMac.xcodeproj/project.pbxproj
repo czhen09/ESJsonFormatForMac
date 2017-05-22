@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB7C76B01EC554B100949F64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76AF1EC554B100949F64 /* AppDelegate.m */; };
+		FB7C76B31EC554B100949F64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B21EC554B100949F64 /* main.m */; };
+		FB7C76B61EC554B100949F64 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B51EC554B100949F64 /* ViewController.m */; };
+		FB7C76B81EC554B100949F64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7C76B71EC554B100949F64 /* Assets.xcassets */; };
+		FB7C76BB1EC554B100949F64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7C76B91EC554B100949F64 /* Main.storyboard */; };
+		FB7C76C61EC554B100949F64 /* ESJsonFormatForMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76C51EC554B100949F64 /* ESJsonFormatForMacTests.m */; };
+		FB7C76D11EC554B100949F64 /* ESJsonFormatForMacUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76D01EC554B100949F64 /* ESJsonFormatForMacUITests.m */; };
+		FB7C76E81EC554D400949F64 /* ESDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76E01EC554D400949F64 /* ESDialogController.m */; };
+		FB7C76E91EC554D400949F64 /* ESDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7C76E11EC554D400949F64 /* ESDialogController.xib */; };
+		FB7C76EA1EC554D400949F64 /* ESInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76E31EC554D400949F64 /* ESInputJsonController.m */; };
+		FB7C76EB1EC554D400949F64 /* ESInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7C76E41EC554D400949F64 /* ESInputJsonController.xib */; };
+		FB7C77211EC5608200949F64 /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77181EC5608200949F64 /* NSObject_Extension.m */; };
+		FB7C77221EC5608200949F64 /* NSString+ESExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C771A1EC5608200949F64 /* NSString+ESExtension.m */; };
+		FB7C77231EC5608200949F64 /* ESJsonFormatSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C771D1EC5608200949F64 /* ESJsonFormatSetting.m */; };
+		FB7C77241EC5608200949F64 /* ESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77201EC5608200949F64 /* ESUtils.m */; };
+		FB7C772E1EC5608D00949F64 /* ESClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77271EC5608D00949F64 /* ESClassInfo.m */; };
+		FB7C772F1EC5608D00949F64 /* ESFormatInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77291EC5608D00949F64 /* ESFormatInfo.m */; };
+		FB7C77301EC5608D00949F64 /* ESPair.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C772B1EC5608D00949F64 /* ESPair.m */; };
+		FB7C77311EC5608D00949F64 /* ESPbxprojInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C772D1EC5608D00949F64 /* ESPbxprojInfo.m */; };
+		FB7C77371EC560B700949F64 /* ESJsonFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77341EC560B700949F64 /* ESJsonFormat.m */; };
+		FB7C77381EC560B700949F64 /* ESJsonFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C77361EC560B700949F64 /* ESJsonFormatManager.m */; };
+		FB7C773C1EC560E800949F64 /* ESSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C773A1EC560E800949F64 /* ESSettingController.m */; };
+		FB7C773D1EC560E800949F64 /* ESSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7C773B1EC560E800949F64 /* ESSettingController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB7C76C21EC554B100949F64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB7C76A31EC554B100949F64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB7C76AA1EC554B100949F64;
+			remoteInfo = ESJsonFormatForMac;
+		};
+		FB7C76CD1EC554B100949F64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB7C76A31EC554B100949F64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB7C76AA1EC554B100949F64;
+			remoteInfo = ESJsonFormatForMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB7C76AB1EC554B100949F64 /* ESJsonFormatForMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESJsonFormatForMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB7C76AE1EC554B100949F64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB7C76AF1EC554B100949F64 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB7C76B21EC554B100949F64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB7C76B41EC554B100949F64 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FB7C76B51EC554B100949F64 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB7C76B71EC554B100949F64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB7C76BA1EC554B100949F64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB7C76BC1EC554B100949F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB7C76C11EC554B100949F64 /* ESJsonFormatForMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESJsonFormatForMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB7C76C51EC554B100949F64 /* ESJsonFormatForMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatForMacTests.m; sourceTree = "<group>"; };
+		FB7C76C71EC554B100949F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB7C76CC1EC554B100949F64 /* ESJsonFormatForMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESJsonFormatForMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB7C76D01EC554B100949F64 /* ESJsonFormatForMacUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatForMacUITests.m; sourceTree = "<group>"; };
+		FB7C76D21EC554B100949F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB7C76DF1EC554D400949F64 /* ESDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESDialogController.h; sourceTree = "<group>"; };
+		FB7C76E01EC554D400949F64 /* ESDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESDialogController.m; sourceTree = "<group>"; };
+		FB7C76E11EC554D400949F64 /* ESDialogController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESDialogController.xib; sourceTree = "<group>"; };
+		FB7C76E21EC554D400949F64 /* ESInputJsonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESInputJsonController.h; sourceTree = "<group>"; };
+		FB7C76E31EC554D400949F64 /* ESInputJsonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESInputJsonController.m; sourceTree = "<group>"; };
+		FB7C76E41EC554D400949F64 /* ESInputJsonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESInputJsonController.xib; sourceTree = "<group>"; };
+		FB7C77151EC55F8A00949F64 /* ESJsonFormat-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ESJsonFormat-Prefix.pch"; sourceTree = "<group>"; };
+		FB7C77171EC5608200949F64 /* NSObject_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		FB7C77181EC5608200949F64 /* NSObject_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		FB7C77191EC5608200949F64 /* NSString+ESExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ESExtension.h"; sourceTree = "<group>"; };
+		FB7C771A1EC5608200949F64 /* NSString+ESExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ESExtension.m"; sourceTree = "<group>"; };
+		FB7C771C1EC5608200949F64 /* ESJsonFormatSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormatSetting.h; sourceTree = "<group>"; };
+		FB7C771D1EC5608200949F64 /* ESJsonFormatSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatSetting.m; sourceTree = "<group>"; };
+		FB7C771F1EC5608200949F64 /* ESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESUtils.h; sourceTree = "<group>"; };
+		FB7C77201EC5608200949F64 /* ESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESUtils.m; sourceTree = "<group>"; };
+		FB7C77261EC5608D00949F64 /* ESClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESClassInfo.h; sourceTree = "<group>"; };
+		FB7C77271EC5608D00949F64 /* ESClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESClassInfo.m; sourceTree = "<group>"; };
+		FB7C77281EC5608D00949F64 /* ESFormatInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESFormatInfo.h; sourceTree = "<group>"; };
+		FB7C77291EC5608D00949F64 /* ESFormatInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESFormatInfo.m; sourceTree = "<group>"; };
+		FB7C772A1EC5608D00949F64 /* ESPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPair.h; sourceTree = "<group>"; };
+		FB7C772B1EC5608D00949F64 /* ESPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPair.m; sourceTree = "<group>"; };
+		FB7C772C1EC5608D00949F64 /* ESPbxprojInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPbxprojInfo.h; sourceTree = "<group>"; };
+		FB7C772D1EC5608D00949F64 /* ESPbxprojInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPbxprojInfo.m; sourceTree = "<group>"; };
+		FB7C77331EC560B700949F64 /* ESJsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormat.h; sourceTree = "<group>"; };
+		FB7C77341EC560B700949F64 /* ESJsonFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormat.m; sourceTree = "<group>"; };
+		FB7C77351EC560B700949F64 /* ESJsonFormatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormatManager.h; sourceTree = "<group>"; };
+		FB7C77361EC560B700949F64 /* ESJsonFormatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatManager.m; sourceTree = "<group>"; };
+		FB7C77391EC560E800949F64 /* ESSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSettingController.h; sourceTree = "<group>"; };
+		FB7C773A1EC560E800949F64 /* ESSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSettingController.m; sourceTree = "<group>"; };
+		FB7C773B1EC560E800949F64 /* ESSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESSettingController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB7C76A81EC554B100949F64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76BE1EC554B100949F64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76C91EC554B100949F64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB7C76A21EC554B100949F64 = {
+			isa = PBXGroup;
+			children = (
+				FB7C76AD1EC554B100949F64 /* ESJsonFormatForMac */,
+				FB7C76C41EC554B100949F64 /* ESJsonFormatForMacTests */,
+				FB7C76CF1EC554B100949F64 /* ESJsonFormatForMacUITests */,
+				FB7C76AC1EC554B100949F64 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB7C76AC1EC554B100949F64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C76AB1EC554B100949F64 /* ESJsonFormatForMac.app */,
+				FB7C76C11EC554B100949F64 /* ESJsonFormatForMacTests.xctest */,
+				FB7C76CC1EC554B100949F64 /* ESJsonFormatForMacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB7C76AD1EC554B100949F64 /* ESJsonFormatForMac */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77321EC560AC00949F64 /* Format */,
+				FB7C77251EC5608D00949F64 /* Model */,
+				FB7C77161EC5608200949F64 /* Category */,
+				FB7C771B1EC5608200949F64 /* Setting */,
+				FB7C771E1EC5608200949F64 /* Utils */,
+				FB7C76DE1EC554D400949F64 /* Controller */,
+				FB7C76AE1EC554B100949F64 /* AppDelegate.h */,
+				FB7C76AF1EC554B100949F64 /* AppDelegate.m */,
+				FB7C76B41EC554B100949F64 /* ViewController.h */,
+				FB7C76B51EC554B100949F64 /* ViewController.m */,
+				FB7C76B71EC554B100949F64 /* Assets.xcassets */,
+				FB7C76B91EC554B100949F64 /* Main.storyboard */,
+				FB7C76BC1EC554B100949F64 /* Info.plist */,
+				FB7C76B11EC554B100949F64 /* Supporting Files */,
+			);
+			path = ESJsonFormatForMac;
+			sourceTree = "<group>";
+		};
+		FB7C76B11EC554B100949F64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77151EC55F8A00949F64 /* ESJsonFormat-Prefix.pch */,
+				FB7C76B21EC554B100949F64 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB7C76C41EC554B100949F64 /* ESJsonFormatForMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C76C51EC554B100949F64 /* ESJsonFormatForMacTests.m */,
+				FB7C76C71EC554B100949F64 /* Info.plist */,
+			);
+			path = ESJsonFormatForMacTests;
+			sourceTree = "<group>";
+		};
+		FB7C76CF1EC554B100949F64 /* ESJsonFormatForMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C76D01EC554B100949F64 /* ESJsonFormatForMacUITests.m */,
+				FB7C76D21EC554B100949F64 /* Info.plist */,
+			);
+			path = ESJsonFormatForMacUITests;
+			sourceTree = "<group>";
+		};
+		FB7C76DE1EC554D400949F64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C76DF1EC554D400949F64 /* ESDialogController.h */,
+				FB7C76E01EC554D400949F64 /* ESDialogController.m */,
+				FB7C76E11EC554D400949F64 /* ESDialogController.xib */,
+				FB7C76E21EC554D400949F64 /* ESInputJsonController.h */,
+				FB7C76E31EC554D400949F64 /* ESInputJsonController.m */,
+				FB7C76E41EC554D400949F64 /* ESInputJsonController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB7C77161EC5608200949F64 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77171EC5608200949F64 /* NSObject_Extension.h */,
+				FB7C77181EC5608200949F64 /* NSObject_Extension.m */,
+				FB7C77191EC5608200949F64 /* NSString+ESExtension.h */,
+				FB7C771A1EC5608200949F64 /* NSString+ESExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FB7C771B1EC5608200949F64 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77391EC560E800949F64 /* ESSettingController.h */,
+				FB7C773A1EC560E800949F64 /* ESSettingController.m */,
+				FB7C773B1EC560E800949F64 /* ESSettingController.xib */,
+				FB7C771C1EC5608200949F64 /* ESJsonFormatSetting.h */,
+				FB7C771D1EC5608200949F64 /* ESJsonFormatSetting.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		FB7C771E1EC5608200949F64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C771F1EC5608200949F64 /* ESUtils.h */,
+				FB7C77201EC5608200949F64 /* ESUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FB7C77251EC5608D00949F64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77261EC5608D00949F64 /* ESClassInfo.h */,
+				FB7C77271EC5608D00949F64 /* ESClassInfo.m */,
+				FB7C77281EC5608D00949F64 /* ESFormatInfo.h */,
+				FB7C77291EC5608D00949F64 /* ESFormatInfo.m */,
+				FB7C772A1EC5608D00949F64 /* ESPair.h */,
+				FB7C772B1EC5608D00949F64 /* ESPair.m */,
+				FB7C772C1EC5608D00949F64 /* ESPbxprojInfo.h */,
+				FB7C772D1EC5608D00949F64 /* ESPbxprojInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB7C77321EC560AC00949F64 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				FB7C77331EC560B700949F64 /* ESJsonFormat.h */,
+				FB7C77341EC560B700949F64 /* ESJsonFormat.m */,
+				FB7C77351EC560B700949F64 /* ESJsonFormatManager.h */,
+				FB7C77361EC560B700949F64 /* ESJsonFormatManager.m */,
+			);
+			path = Format;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB7C76AA1EC554B100949F64 /* ESJsonFormatForMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB7C76D51EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMac" */;
+			buildPhases = (
+				FB7C76A71EC554B100949F64 /* Sources */,
+				FB7C76A81EC554B100949F64 /* Frameworks */,
+				FB7C76A91EC554B100949F64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ESJsonFormatForMac;
+			productName = ESJsonFormatForMac;
+			productReference = FB7C76AB1EC554B100949F64 /* ESJsonFormatForMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB7C76C01EC554B100949F64 /* ESJsonFormatForMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB7C76D81EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacTests" */;
+			buildPhases = (
+				FB7C76BD1EC554B100949F64 /* Sources */,
+				FB7C76BE1EC554B100949F64 /* Frameworks */,
+				FB7C76BF1EC554B100949F64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB7C76C31EC554B100949F64 /* PBXTargetDependency */,
+			);
+			name = ESJsonFormatForMacTests;
+			productName = ESJsonFormatForMacTests;
+			productReference = FB7C76C11EC554B100949F64 /* ESJsonFormatForMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB7C76CB1EC554B100949F64 /* ESJsonFormatForMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB7C76DB1EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacUITests" */;
+			buildPhases = (
+				FB7C76C81EC554B100949F64 /* Sources */,
+				FB7C76C91EC554B100949F64 /* Frameworks */,
+				FB7C76CA1EC554B100949F64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB7C76CE1EC554B100949F64 /* PBXTargetDependency */,
+			);
+			name = ESJsonFormatForMacUITests;
+			productName = ESJsonFormatForMacUITests;
+			productReference = FB7C76CC1EC554B100949F64 /* ESJsonFormatForMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB7C76A31EC554B100949F64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = ZX;
+				TargetAttributes = {
+					FB7C76AA1EC554B100949F64 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					FB7C76C01EC554B100949F64 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FB7C76AA1EC554B100949F64;
+					};
+					FB7C76CB1EC554B100949F64 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FB7C76AA1EC554B100949F64;
+					};
+				};
+			};
+			buildConfigurationList = FB7C76A61EC554B100949F64 /* Build configuration list for PBXProject "ESJsonFormatForMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB7C76A21EC554B100949F64;
+			productRefGroup = FB7C76AC1EC554B100949F64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB7C76AA1EC554B100949F64 /* ESJsonFormatForMac */,
+				FB7C76C01EC554B100949F64 /* ESJsonFormatForMacTests */,
+				FB7C76CB1EC554B100949F64 /* ESJsonFormatForMacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB7C76A91EC554B100949F64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB7C76EB1EC554D400949F64 /* ESInputJsonController.xib in Resources */,
+				FB7C76B81EC554B100949F64 /* Assets.xcassets in Resources */,
+				FB7C76E91EC554D400949F64 /* ESDialogController.xib in Resources */,
+				FB7C773D1EC560E800949F64 /* ESSettingController.xib in Resources */,
+				FB7C76BB1EC554B100949F64 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76BF1EC554B100949F64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76CA1EC554B100949F64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB7C76A71EC554B100949F64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB7C77381EC560B700949F64 /* ESJsonFormatManager.m in Sources */,
+				FB7C76B61EC554B100949F64 /* ViewController.m in Sources */,
+				FB7C77241EC5608200949F64 /* ESUtils.m in Sources */,
+				FB7C772E1EC5608D00949F64 /* ESClassInfo.m in Sources */,
+				FB7C77231EC5608200949F64 /* ESJsonFormatSetting.m in Sources */,
+				FB7C77371EC560B700949F64 /* ESJsonFormat.m in Sources */,
+				FB7C76EA1EC554D400949F64 /* ESInputJsonController.m in Sources */,
+				FB7C76B31EC554B100949F64 /* main.m in Sources */,
+				FB7C772F1EC5608D00949F64 /* ESFormatInfo.m in Sources */,
+				FB7C77211EC5608200949F64 /* NSObject_Extension.m in Sources */,
+				FB7C773C1EC560E800949F64 /* ESSettingController.m in Sources */,
+				FB7C76B01EC554B100949F64 /* AppDelegate.m in Sources */,
+				FB7C76E81EC554D400949F64 /* ESDialogController.m in Sources */,
+				FB7C77311EC5608D00949F64 /* ESPbxprojInfo.m in Sources */,
+				FB7C77221EC5608200949F64 /* NSString+ESExtension.m in Sources */,
+				FB7C77301EC5608D00949F64 /* ESPair.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76BD1EC554B100949F64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB7C76C61EC554B100949F64 /* ESJsonFormatForMacTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB7C76C81EC554B100949F64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB7C76D11EC554B100949F64 /* ESJsonFormatForMacUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB7C76C31EC554B100949F64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB7C76AA1EC554B100949F64 /* ESJsonFormatForMac */;
+			targetProxy = FB7C76C21EC554B100949F64 /* PBXContainerItemProxy */;
+		};
+		FB7C76CE1EC554B100949F64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB7C76AA1EC554B100949F64 /* ESJsonFormatForMac */;
+			targetProxy = FB7C76CD1EC554B100949F64 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB7C76B91EC554B100949F64 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB7C76BA1EC554B100949F64 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB7C76D31EC554B100949F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FB7C76D41EC554B100949F64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FB7C76D61EC554B100949F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ESJsonFormatForMac/ESJsonFormat-Prefix.pch";
+				INFOPLIST_FILE = ESJsonFormatForMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB7C76D71EC554B100949F64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ESJsonFormatForMac/ESJsonFormat-Prefix.pch";
+				INFOPLIST_FILE = ESJsonFormatForMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB7C76D91EC554B100949F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ESJsonFormatForMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESJsonFormatForMac.app/Contents/MacOS/ESJsonFormatForMac";
+			};
+			name = Debug;
+		};
+		FB7C76DA1EC554B100949F64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ESJsonFormatForMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ESJsonFormatForMac.app/Contents/MacOS/ESJsonFormatForMac";
+			};
+			name = Release;
+		};
+		FB7C76DC1EC554B100949F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ESJsonFormatForMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ESJsonFormatForMac;
+			};
+			name = Debug;
+		};
+		FB7C76DD1EC554B100949F64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ESJsonFormatForMacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ESJsonFormatForMac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB7C76A61EC554B100949F64 /* Build configuration list for PBXProject "ESJsonFormatForMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB7C76D31EC554B100949F64 /* Debug */,
+				FB7C76D41EC554B100949F64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB7C76D51EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB7C76D61EC554B100949F64 /* Debug */,
+				FB7C76D71EC554B100949F64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB7C76D81EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB7C76D91EC554B100949F64 /* Debug */,
+				FB7C76DA1EC554B100949F64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB7C76DB1EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB7C76DC1EC554B100949F64 /* Debug */,
+				FB7C76DD1EC554B100949F64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB7C76A31EC554B100949F64 /* Project object */;
+}

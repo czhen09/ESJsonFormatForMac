@@ -13,7 +13,7 @@
 
 挣扎：  
 1.在ESJsonFormat核心内容不变的情况下，重建了macOS工程，添加了界面。至此，ESJsonFormat的基本功能可以独立于Xcode运行;  
- ![avatar](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午2.50.23.png)
+ ![img](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午2.50.23.png)
  
 
 其中界面功能如下:  
@@ -25,12 +25,12 @@
 
 2.使用:程序下载下来，跑起来之后，之后在Dock中保留就可以了;  
 
-![avatar](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.25.49.png)
+![img](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.25.49.png)
 
 
 最后：  
 软件使用相当简单，大家下载下来一看便知； 
 附几张效果图:    
-![avatar](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.29.36.png)   
+![img](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.29.36.png)   
   
-![avatar](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.30.59.png)
+![img](/Users/cdbqkj/Desktop/屏幕快照 2017-05-22 下午3.30.59.png)
