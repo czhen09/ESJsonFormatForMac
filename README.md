@@ -1,5 +1,6 @@
 
-至前致谢：此工具核心内容来自[EnjoySR/ESJsonFormat-Xcode](https://github.com/EnjoySR/ESJsonFormat-Xcode)
+至前致谢：此工具核心内容来自[EnjoySR/ESJsonFormat-Xcode](https://github.com/EnjoySR/ESJsonFormat-Xcode)    
+图片显示不完整可移步至简书:[http://www.jianshu.com/p/a5e26ae42d8b]()  
 
 现状：  
 1.在YYModel盛行的时候，其他插件都可以不用，但是ESJsonFormat必不可缺；
