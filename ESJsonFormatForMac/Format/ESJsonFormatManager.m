@@ -167,7 +167,19 @@
     
     NSMutableString *result = [NSMutableString stringWithString:@""];
     if ([ESJsonFormatSetting defaultSetting].impOjbClassInArray) {
-        [result appendFormat:@"@implementation %@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo]];
+        
+        
+        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        
+        if (isYYModel) {
+            
+            [result appendFormat:@"@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
+        }else{
+            
+            [result appendFormat:@"@implementation %@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo]];
+        }
+
+            
     }else{
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
     }
@@ -238,6 +250,8 @@
  *  @return
  */
 + (NSString *)methodContentOfObjectClassInArrayWithClassInfo:(ESClassInfo *)classInfo{
+    
+
     if (classInfo.propertyArrayDic.count==0) {
         return @"";
     }else{
@@ -249,12 +263,52 @@
         if ([result hasSuffix:@", "]) {
             result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
         }
-        //append method content (objectClassInArray)
-        NSString *methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)objectClassInArray{\n    return @{%@};\n}\n",result];
+        
+        
+        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        NSString *methodStr = nil;
+        if (isYYModel) {
+            
+            //append method content (objectClassInArray) if YYModel
+            methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",result];
+        }else{
+            // append method content (objectClassInArray)
+            methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)objectClassInArray{\n    return @{%@};\n}\n",result];
+        }
+        
         return methodStr;
     }
 }
 
+
++ (NSString *)methodContentOfObjectIDInArrayWithClassInfo:(ESClassInfo *)classInfo{
+    
+
+        NSMutableString *result = [NSMutableString string];
+        NSDictionary *dic = classInfo.classDic;
+         NSLog(@"%@",dic);
+        [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+        
+           
+            NSLog(@"key====%@",key);
+            NSLog(@"obj====%@",obj);
+            NSLog(@"=============================");
+            if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+               
+
+                [result appendFormat:@"@\"%@\":%@, ",[key uppercaseString],key];
+            }
+            
+        }];
+        
+        if ([result hasSuffix:@", "]) {
+            result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+            NSString *methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",result];
+            return methodStr;
+        }
+    
+        return result;
+}
 
 /**
  *  拼装模板信息

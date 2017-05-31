@@ -112,8 +112,8 @@
                         <rect key="frame" x="0.0" y="364" width="771" height="60"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HWq-4q-cOq">
-                                <rect key="frame" x="13" y="22" width="42" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="POST:" id="e2e-JH-jfL">
+                                <rect key="frame" x="13" y="22" width="34" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="URL:" id="e2e-JH-jfL">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dCv-bN-JBq">
-                                <rect key="frame" x="63" y="17" width="560" height="26"/>
+                                <rect key="frame" x="55" y="17" width="568" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="uPw-VW-A5B"/>
                                 </constraints>
@@ -199,7 +199,7 @@
                         <rect key="frame" x="621" y="40" width="150" height="324"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dcK-H9-JYv">
-                                <rect key="frame" x="39" y="246" width="72" height="32"/>
+                                <rect key="frame" x="39" y="195" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Enter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aeX-a5-hlQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -209,7 +209,7 @@
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9fW-dT-lXs">
-                                <rect key="frame" x="8" y="302" width="134" height="24"/>
+                                <rect key="frame" x="8" y="251" width="134" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="EM3-2T-I18">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -222,7 +222,7 @@
                                 </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qji-MD-Noo">
-                                <rect key="frame" x="8" y="195" width="135" height="32"/>
+                                <rect key="frame" x="8" y="144" width="135" height="32"/>
                                 <buttonCell key="cell" type="push" title="Copy .h || .swift" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PHx-8j-cUU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -232,7 +232,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vsV-DL-JN2">
-                                <rect key="frame" x="30" y="144" width="91" height="32"/>
+                                <rect key="frame" x="30" y="93" width="91" height="32"/>
                                 <buttonCell key="cell" type="push" title="Copy .m" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tIe-dW-eYi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -242,7 +242,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uIq-V2-dzr">
-                                <rect key="frame" x="22" y="93" width="105" height="32"/>
+                                <rect key="frame" x="22" y="42" width="105" height="32"/>
                                 <buttonCell key="cell" type="push" title="Clear Json" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gnU-zt-eny">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -251,6 +251,19 @@
                                     <action selector="clearJsonBtnAction:" target="-2" id="nkm-JW-RaZ"/>
                                 </connections>
                             </button>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f6A-b3-xcT">
+                                <rect key="frame" x="5" y="302" width="140" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="3gh-Kg-ICc">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="MJExt"/>
+                                        <segment label="YYModel" selected="YES" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="selectedModelTypeSegmentControllerAction:" target="-2" id="VR2-WR-Vpn"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dcK-H9-JYv" firstAttribute="centerX" secondItem="9fW-dT-lXs" secondAttribute="centerX" id="8eO-cD-uWe"/>
@@ -258,10 +271,12 @@
                             <constraint firstItem="vsV-DL-JN2" firstAttribute="centerX" secondItem="9fW-dT-lXs" secondAttribute="centerX" id="Dvg-5n-7Pq"/>
                             <constraint firstItem="Qji-MD-Noo" firstAttribute="centerX" secondItem="9fW-dT-lXs" secondAttribute="centerX" id="Dz7-4U-fDU"/>
                             <constraint firstItem="Qji-MD-Noo" firstAttribute="top" secondItem="dcK-H9-JYv" secondAttribute="bottom" constant="30" id="EgH-Xb-w8r"/>
+                            <constraint firstItem="9fW-dT-lXs" firstAttribute="top" secondItem="f6A-b3-xcT" secondAttribute="bottom" constant="30" id="HNZ-dp-eQy"/>
                             <constraint firstItem="uIq-V2-dzr" firstAttribute="centerX" secondItem="9fW-dT-lXs" secondAttribute="centerX" id="Vbh-eC-67i"/>
                             <constraint firstItem="uIq-V2-dzr" firstAttribute="top" secondItem="vsV-DL-JN2" secondAttribute="bottom" constant="30" id="cc3-JQ-1fU"/>
                             <constraint firstItem="dcK-H9-JYv" firstAttribute="top" secondItem="9fW-dT-lXs" secondAttribute="bottom" constant="30" id="mc1-JX-zOK"/>
                             <constraint firstItem="vsV-DL-JN2" firstAttribute="top" secondItem="Qji-MD-Noo" secondAttribute="bottom" constant="30" id="u7A-Rl-luq"/>
+                            <constraint firstItem="f6A-b3-xcT" firstAttribute="centerX" secondItem="Mqp-5Y-Hqh" secondAttribute="centerX" id="z1W-8u-R0B"/>
                         </constraints>
                     </customView>
                 </subviews>
@@ -278,7 +293,6 @@
                     <constraint firstItem="Yw1-8C-9xd" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="PoJ-KQ-znT"/>
                     <constraint firstItem="mS9-dX-cbI" firstAttribute="width" secondItem="r1a-GN-ZV2" secondAttribute="width" id="RYe-9Z-d5q"/>
                     <constraint firstItem="Mqp-5Y-Hqh" firstAttribute="bottom" secondItem="r1a-GN-ZV2" secondAttribute="bottom" id="Tpk-ZT-fJo"/>
-                    <constraint firstItem="9fW-dT-lXs" firstAttribute="centerY" secondItem="dG1-bw-51u" secondAttribute="centerY" id="ViM-MS-9Xo"/>
                     <constraint firstItem="eDy-HQ-0Zz" firstAttribute="leading" secondItem="mS9-dX-cbI" secondAttribute="trailing" id="Yi8-5c-8gH"/>
                     <constraint firstItem="KuW-jn-ka0" firstAttribute="top" secondItem="Yw1-8C-9xd" secondAttribute="bottom" id="chL-C3-eFd"/>
                     <constraint firstItem="1MB-V1-NpX" firstAttribute="width" secondItem="KuW-jn-ka0" secondAttribute="width" multiplier="1:3" id="ehB-Ah-6xU"/>
@@ -290,12 +304,13 @@
                     <constraint firstItem="Yw1-8C-9xd" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="t3C-8z-u3q"/>
                     <constraint firstItem="eDy-HQ-0Zz" firstAttribute="top" secondItem="5dn-bt-1pg" secondAttribute="top" id="vdr-J7-QvG"/>
                     <constraint firstItem="Mqp-5Y-Hqh" firstAttribute="leading" secondItem="KuW-jn-ka0" secondAttribute="trailing" id="yFM-eu-Uhk"/>
+                    <constraint firstItem="f6A-b3-xcT" firstAttribute="centerY" secondItem="dG1-bw-51u" secondAttribute="centerY" id="zK3-9J-aow"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="18" y="299"/>
+            <point key="canvasLocation" x="274" y="218"/>
         </window>
     </objects>
 </document>

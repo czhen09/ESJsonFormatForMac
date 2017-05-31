@@ -25,7 +25,7 @@ NSString *const kESJsonFormatUppercaseKeyWordForId = @"com.EnjoySR.ESJsonFormat.
         NSDictionary *defaults = @{kESJsonFormatGeneric: @YES,
                                    kESJsonFormatOutputToFiles: @NO,
                                    kESJsonFormatImpObjClassInArray: @YES,
-                                   kESJsonFormatUppercaseKeyWordForId: @NO};
+                                   kESJsonFormatUppercaseKeyWordForId: @YES};
                   [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     });
     return defaultSetting;

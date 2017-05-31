@@ -90,8 +90,11 @@
        
         self.inputTextView.delegate = self;
         self.isSwift = NO;
-        [[NSUserDefaults standardUserDefaults] setBool:self.isSwift forKey:@"isSwift"];
         
+        
+        //因为我没有找到设置segmentcontroller初始设置选中的方法...所以...这样了
+        [[NSUserDefaults standardUserDefaults] setBool:self.isSwift forKey:@"isSwift"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isYYModel"];
     }
     
     return self;
@@ -104,6 +107,12 @@
     }
 }
 
+- (IBAction)selectedModelTypeSegmentControllerAction:(NSSegmentedControl *)sender {
+    
+    BOOL isYYModel = (sender.selectedSegment == 1)?YES:NO;
+    [[NSUserDefaults standardUserDefaults] setBool:isYYModel forKey:@"isYYModel"];
+    
+}
 
 - (IBAction)segmentControllerAction:(NSSegmentedControl *)sender {
     
