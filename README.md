@@ -1,6 +1,6 @@
 
 至前致谢：此工具核心内容来自[EnjoySR/ESJsonFormat-Xcode](https://github.com/EnjoySR/ESJsonFormat-Xcode)    
-图片显示不完整可移步至:[简书地址](http://www.jianshu.com/p/a5e26ae42d8b)
+
 
 ##2017-5-31:  
 ##新增功能:  
