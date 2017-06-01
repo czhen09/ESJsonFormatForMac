@@ -642,6 +642,7 @@
 				FB7C76D71EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB7C76D81EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacTests" */ = {
 			isa = XCConfigurationList;
@@ -650,6 +651,7 @@
 				FB7C76DA1EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB7C76DB1EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacUITests" */ = {
 			isa = XCConfigurationList;
@@ -658,6 +660,7 @@
 				FB7C76DD1EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
