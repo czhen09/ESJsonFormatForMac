@@ -16,7 +16,7 @@ and
     return @{@“subItems” : [Subitems class]};  
     }
 
-![image](https://github.com/czhen09/ESJsonFormatForMac/blod/master/image/5.png)  
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/5.png)  
 
 ##2017-5-22:  
 ##现状：  
@@ -45,13 +45,13 @@ and
 2.使用:程序下载下来，跑起来之后，之后在Dock中保留就可以了;  
 
 
-![image](https://github.com/czhen09/ESJsonFormatForMac/raw/masterimage/2.png)
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/2.png)
 
 
 ##最后：  
 软件使用相当简单，大家下载下来一看便知； 
 附几张效果图:    
 
-![image](https://github.com/czhen09/ESJsonFormatForMac/raw/masterimage/3.png)  
-![image](https://github.com/czhen09/ESJsonFormatForMac/raw/masterimage/4.png)
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/3.png)  
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/4.png)
 
