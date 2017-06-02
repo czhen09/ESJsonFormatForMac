@@ -4,6 +4,9 @@
 附上[简书地址](http://www.jianshu.com/p/a5e26ae42d8b),在使用中有任何问题或者好的建议可以在简书或者GitHub issue
 
 
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/useGuide.gif)  
+
+
 ##2017-6-2  
 ##新增功能  
 1.支持post/get请求选择; Https请求我也处理了下,但是没有测试,具体是否可行未知;    
