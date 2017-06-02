@@ -368,13 +368,13 @@
 //    [self.dataArr insertObject:dataModel atIndex:0];
     
     [_tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:self.rowCount-1] withAnimation:NSTableViewAnimationSlideDown];
-    
-    
-//    //滚动到底部
-//    CGPoint scrollOrigin = CGPointMake(0, (self.rowCount-1)*50);
-//    [[self.tableView enclosingScrollView].contentView scrollToPoint:scrollOrigin];
-    
     [_tableView endUpdates];
+    
+    
+    //滚动到底部//必须写在[_tableView endUpdates];之后
+    CGPoint scrollOrigin = CGPointMake(0, (self.rowCount-1)*50);
+    [[self.tableView enclosingScrollView].contentView scrollToPoint:scrollOrigin];
+
     
     
 }
