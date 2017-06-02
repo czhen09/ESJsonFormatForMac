@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB4532681EE01AAD00B5457C /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4532671EE01AAD00B5457C /* DataModel.m */; };
+		FB49E6BD1EE106BE00789060 /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */; };
 		FB7C76B01EC554B100949F64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76AF1EC554B100949F64 /* AppDelegate.m */; };
 		FB7C76B31EC554B100949F64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B21EC554B100949F64 /* main.m */; };
 		FB7C76B61EC554B100949F64 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B51EC554B100949F64 /* ViewController.m */; };
@@ -50,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB4532661EE01AAD00B5457C /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		FB4532671EE01AAD00B5457C /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		FB49E6BB1EE106BE00789060 /* HttpRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestTool.h; sourceTree = "<group>"; };
+		FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestTool.m; sourceTree = "<group>"; };
 		FB7C76AB1EC554B100949F64 /* ESJsonFormatForMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESJsonFormatForMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7C76AE1EC554B100949F64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB7C76AF1EC554B100949F64 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 			children = (
 				FB7C771F1EC5608200949F64 /* ESUtils.h */,
 				FB7C77201EC5608200949F64 /* ESUtils.m */,
+				FB49E6BB1EE106BE00789060 /* HttpRequestTool.h */,
+				FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +246,8 @@
 		FB7C77251EC5608D00949F64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB4532661EE01AAD00B5457C /* DataModel.h */,
+				FB4532671EE01AAD00B5457C /* DataModel.m */,
 				FB7C77261EC5608D00949F64 /* ESClassInfo.h */,
 				FB7C77271EC5608D00949F64 /* ESClassInfo.m */,
 				FB7C77281EC5608D00949F64 /* ESFormatInfo.h */,
@@ -409,9 +419,11 @@
 				FB7C773C1EC560E800949F64 /* ESSettingController.m in Sources */,
 				FB7C76B01EC554B100949F64 /* AppDelegate.m in Sources */,
 				FB7C76E81EC554D400949F64 /* ESDialogController.m in Sources */,
+				FB4532681EE01AAD00B5457C /* DataModel.m in Sources */,
 				FB7C77311EC5608D00949F64 /* ESPbxprojInfo.m in Sources */,
 				FB7C77221EC5608200949F64 /* NSString+ESExtension.m in Sources */,
 				FB7C77301EC5608D00949F64 /* ESPair.m in Sources */,
+				FB49E6BD1EE106BE00789060 /* HttpRequestTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +654,7 @@
 				FB7C76D71EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB7C76D81EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacTests" */ = {
 			isa = XCConfigurationList;
@@ -650,6 +663,7 @@
 				FB7C76DA1EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB7C76DB1EC554B100949F64 /* Build configuration list for PBXNativeTarget "ESJsonFormatForMacUITests" */ = {
 			isa = XCConfigurationList;
@@ -658,6 +672,7 @@
 				FB7C76DD1EC554B100949F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

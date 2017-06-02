@@ -4,213 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-showInputJsonWindow:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
-            timestampString = "516704412.403283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-outputResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "517911843.954448"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-requestDataWithUrlStr:success:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "517911843.954448"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "-requestDataWithUrlStr:success:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "517911843.954448"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "-requestDataWithUrlStr:success:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__55-[ESInputJsonController requestDataWithUrlStr:success:]_block_invoke"
-                  moduleName = "ESJsonFormatForMac"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cdbqkj/Desktop/ESJsonFormatForMac/ESJsonFormatForMac/Controller/ESInputJsonController.m"
-                  timestampString = "517910024.463579"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "290">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.98"
-                  moduleName = "ESJsonFormatForMac"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cdbqkj/Desktop/ESJsonFormatForMac/ESJsonFormatForMac/Controller/ESInputJsonController.m"
-                  timestampString = "517910024.464777"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "94">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.99"
-                  moduleName = "ESJsonFormatForMac"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cdbqkj/Desktop/ESJsonFormatForMac/ESJsonFormatForMac/Controller/ESInputJsonController.m"
-                  timestampString = "517910024.466045"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "59">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -227,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "517911843.954448"
+            timestampString = "518079263.857964"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-requestDataWithUrlStr:success:"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "-controlTextDidEndEditing:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -243,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "517911843.954448"
+            timestampString = "518083757.927161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-initWithNibName:bundle:"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "-addRowUnderTheSelectedRow"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -258,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517911843.954448"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518083757.927161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "+methodContentOfObjectIDInArrayWithClassInfo:"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "-addRowUnderTheSelectedRow"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -274,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517911843.954448"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518079880.840919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
-            landmarkName = "+methodContentOfObjectIDInArrayWithClassInfo:"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-controlTextDidEndEditing:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -290,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517911843.954448"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518079888.489231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "+parseClassImpContentWithClassInfo:"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-controlTextDidEndEditing:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -306,13 +99,93 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517911843.954448"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518079921.922506"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "-controlTextDidEndEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518079963.356125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "-controlTextDidEndEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518081080.59398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "288"
             endingLineNumber = "288"
-            landmarkName = "+methodContentOfObjectIDInArrayWithClassInfo:"
+            landmarkName = "-outputParamsStrByDataArr:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ESInputJsonController outputParamsStrByDataArr:]"
+                  moduleName = "ESJsonFormatForMac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cdbqkj/Desktop/ESJsonFormatForMac/ESJsonFormatForMac/Controller/ESInputJsonController.m"
+                  timestampString = "518083595.956792"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ESInputJsonController outputParamsStrByDataArr:]"
+                  moduleName = "ESJsonFormatForMac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cdbqkj/Desktop/ESJsonFormatForMac/ESJsonFormatForMac/Controller/ESInputJsonController.m"
+                  timestampString = "518083595.958996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518083757.927161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "-addRowUnderTheSelectedRow"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -322,13 +195,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517911843.954448"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518081080.59398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "+parseClassImpContentWithClassInfo:"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "-outputParamsStrByDataArr:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -338,13 +211,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ESJsonFormatForMac/Format/ESJsonFormatManager.m"
-            timestampString = "517910142.774756"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518081080.59398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "+parseClassImpContentWithClassInfo:"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "-outputParamsStrByDataArr:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
+            timestampString = "518081080.59398"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "-outputParamsStrByDataArr:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
