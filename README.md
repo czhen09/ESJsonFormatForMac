@@ -6,6 +6,9 @@
 
 ![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/useGuide.gif)  
 
+##2017-6-12  
+##修复.m文件中双引号输出格式错误bug；
+
 ##2017-6-4    
 ##更新软件dmg软件包  
 具体下载后在Application/ESJsonFormatForMac.dmg可以找到；
