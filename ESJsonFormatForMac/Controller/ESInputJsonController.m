@@ -736,12 +736,19 @@
     }else{
         if (!self.hContentTextView) return;
         if (!self.isSwift) {
+            
+            
+            NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
+            self.mContentTextView.string = mContent;
+            
             //如果输入主类的话就一起显示了
             [self.hContentTextView insertText:classInfo.atClassContent replacementRange:NSMakeRange(0, self.hContentTextView.string.length)];
             [self.hContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classContentForH] replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
             [self.hContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForH] replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
-            [self.mContentTextView insertText:classInfo.classContentForM replacementRange:NSMakeRange(0, self.mContentTextView.string.length)];
-            [self.mContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForM] replacementRange:NSMakeRange(self.mContentTextView.string.length,0)];
+            
+            //.m文件内容不能使用废除的insert方法插入，否则""将失效；
+//            [self.mContentTextView insertText:classInfo.classContentForM replacementRange:NSMakeRange(0, self.mContentTextView.string.length)];
+//            [self.mContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForM] replacementRange:NSMakeRange(self.mContentTextView.string.length,0)];
             
 //             //如果不输入主类的话，就可以分开展示
 //            //先添加主类的属性

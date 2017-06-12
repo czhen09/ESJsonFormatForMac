@@ -566,6 +566,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ESJsonFormatForMac/ESJsonFormat-Prefix.pch";
 				INFOPLIST_FILE = ESJsonFormatForMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -580,6 +581,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ESJsonFormatForMac/ESJsonFormat-Prefix.pch";
 				INFOPLIST_FILE = ESJsonFormatForMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxu.ESJsonFormatForMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

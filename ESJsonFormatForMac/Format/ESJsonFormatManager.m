@@ -296,7 +296,7 @@
             if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
                
 
-                [result appendFormat:@"@\"%@\":%@, ",[key uppercaseString],key];
+                [result appendFormat:@"@\"%@\":@\"%@\", ",[key uppercaseString],key];
             }
             
         }];
