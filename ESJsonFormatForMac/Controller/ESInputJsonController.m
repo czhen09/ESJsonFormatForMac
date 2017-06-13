@@ -17,7 +17,7 @@
 
 #import "DataModel.h"
 #import "HttpRequestTool.h"
-
+#import "FileManager.h"
 @interface ESInputJsonController ()<NSTextViewDelegate,NSTableViewDataSource,NSTabViewDelegate,NSTextFieldDelegate,NSTextDelegate>
 
 /**
@@ -464,6 +464,14 @@
     [pab setString:str forType:NSStringPboardType];
 }
 
+- (IBAction)clearFileOutputPathAction:(id)sender {
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"folderPath"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"\nClear Success."];
+    [alert runModal];
+}
 
 #pragma mark - RequestData
 
@@ -772,8 +780,36 @@
             //再添加把其他类的的字符串拼接到最后面
             [self.hContentTextView insertText:classInfo.classInsertTextViewContentForH replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
         }
+        
+        [self creatFile];
     }
 }
+
+- (void)creatFile{
+    
+    NSString *folderPath = [[NSUserDefaults standardUserDefaults] valueForKey:@"folderPath"];
+    if (folderPath) {
+        
+        [[FileManager sharedInstance] handleBaseData:folderPath hFileName:self.hLabel.stringValue mFileName:self.mLabel.stringValue hContent:self.hContentTextView.string mContent:self.mContentTextView.string];
+        [[NSWorkspace sharedWorkspace] openFile:folderPath];
+    }else{
+        
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        [panel setTitle:@"ESJsonFormat"];
+        [panel setCanChooseDirectories:YES];
+        [panel setCanCreateDirectories:YES];
+        [panel setCanChooseFiles:NO];
+        
+        if ([panel runModal] == NSModalResponseOK) {
+            folderPath = [[[panel URLs] objectAtIndex:0] relativePath];
+            [[NSUserDefaults standardUserDefaults] setValue:folderPath forKey:@"folderPath"];
+            NSLog(@"%@",folderPath);
+            [[FileManager sharedInstance] handleBaseData:folderPath hFileName:self.hLabel.stringValue mFileName:self.mLabel.stringValue hContent:self.hContentTextView.string mContent:self.mContentTextView.string];
+            [[NSWorkspace sharedWorkspace] openFile:folderPath];
+        }
+    }
+}
+
 #pragma mark - Getter And Setter
 - (NSMutableArray *)dataArr
 {

@@ -6,8 +6,19 @@
 
 ![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/useGuide.gif)  
 
+##2017-6-13   
+##新增文件输出功能功能
+1. 据gitHub友友="Jason Hu 胡竞尘"提议，新增文件输出功能，点击Enter之后，选择生成文件的目录，自动生成所需Model文件；  
+2. 设置了本地保存生成路径操作，建议使用本软件的用户将生成的文件保存在一个新建目录下，以后就默认生成至此目录；  
+3. 如果想更改的话，只需点击右侧的按钮->Clear FileOutputPath;下次生成的时候便可重写选择目录；     
+  
+这样子，直接将文件拖进xcode目录就好了！！ 
+
+
+
 ##2017-6-12  
-##修复.m文件中双引号输出格式错误bug；
+## bug修复 
+修复.m文件中双引号输出格式错误bug；
 
 ##2017-6-4    
 ##更新软件dmg软件包  

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FB4532681EE01AAD00B5457C /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4532671EE01AAD00B5457C /* DataModel.m */; };
 		FB49E6BD1EE106BE00789060 /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */; };
+		FB63B6E11EF01F0800802A5E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63B6E01EF01F0800802A5E /* FileManager.m */; };
 		FB7C76B01EC554B100949F64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76AF1EC554B100949F64 /* AppDelegate.m */; };
 		FB7C76B31EC554B100949F64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B21EC554B100949F64 /* main.m */; };
 		FB7C76B61EC554B100949F64 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7C76B51EC554B100949F64 /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		FB4532671EE01AAD00B5457C /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		FB49E6BB1EE106BE00789060 /* HttpRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestTool.h; sourceTree = "<group>"; };
 		FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestTool.m; sourceTree = "<group>"; };
+		FB63B6DF1EF01F0800802A5E /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		FB63B6E01EF01F0800802A5E /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		FB7C76AB1EC554B100949F64 /* ESJsonFormatForMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESJsonFormatForMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7C76AE1EC554B100949F64 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB7C76AF1EC554B100949F64 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		FB7C771E1EC5608200949F64 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB63B6DF1EF01F0800802A5E /* FileManager.h */,
+				FB63B6E01EF01F0800802A5E /* FileManager.m */,
 				FB7C771F1EC5608200949F64 /* ESUtils.h */,
 				FB7C77201EC5608200949F64 /* ESUtils.m */,
 				FB49E6BB1EE106BE00789060 /* HttpRequestTool.h */,
@@ -414,6 +419,7 @@
 				FB7C77371EC560B700949F64 /* ESJsonFormat.m in Sources */,
 				FB7C76EA1EC554D400949F64 /* ESInputJsonController.m in Sources */,
 				FB7C76B31EC554B100949F64 /* main.m in Sources */,
+				FB63B6E11EF01F0800802A5E /* FileManager.m in Sources */,
 				FB7C772F1EC5608D00949F64 /* ESFormatInfo.m in Sources */,
 				FB7C77211EC5608200949F64 /* NSObject_Extension.m in Sources */,
 				FB7C773C1EC560E800949F64 /* ESSettingController.m in Sources */,
