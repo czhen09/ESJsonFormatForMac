@@ -4,7 +4,12 @@
 附上[简书地址](http://www.jianshu.com/p/a5e26ae42d8b),在使用中有任何问题或者好的建议可以在简书或者GitHub issue
 
 
-![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/useGuide.gif)  
+![image](https://github.com/czhen09/ESJsonFormatForMac/raw/master/image/useGuide.gif)     
+
+## 2017-10-31   
+* 软件版本升级到1.1;  
+* 添加model父类添加;  
+* 修复请求无数据返回的崩溃;
 
 ## 2017-6-13   
 ## 新增文件输出功能功能

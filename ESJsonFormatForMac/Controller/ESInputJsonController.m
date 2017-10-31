@@ -48,9 +48,7 @@
 @property (unsafe_unretained) IBOutlet NSTextView *paramsTxv;
 
 @property (weak) IBOutlet NSPopUpButton *popUpBtn;
-
-
-
+@property (weak) IBOutlet NSTextField *superClassTextfield;
 
 
 /**保存参数模型数组*/
@@ -80,6 +78,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.inputUrlTxf.delegate = self;
+    self.superClassTextfield.delegate = self;
     [self.tableView reloadData];
     [self creatAddAndDeledateBtn];
     
@@ -242,6 +241,16 @@
 - (void)controlTextDidEndEditing:(NSNotification *)obj
 {
     NSTextField *txf = (NSTextField *)obj.object;
+    
+    //父类
+    if (txf.tag==666) {
+        NSLog(@"父类==%@",txf.stringValue);
+        [[NSUserDefaults standardUserDefaults] setValue:txf.stringValue forKey:@"SuperClass"];
+        return;
+    }
+    
+    
+    //
     DataModel *dataModel = [DataModel new];
     if (txf.tag<2000&&txf.tag>=1000) {
         
@@ -416,6 +425,8 @@
 }
 
 - (IBAction)enterButtonClick:(NSButton *)sender {
+    
+    [[NSUserDefaults standardUserDefaults] setValue:self.superClassTextfield.stringValue forKey:@"SuperClass"];
     
            
        //self.classContentTextView.string = @"";

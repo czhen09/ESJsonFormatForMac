@@ -207,7 +207,13 @@
  *  @return
  */
 + (NSString *)parseClassHeaderContentForOjbcWithClassInfo:(ESClassInfo *)classInfo{
-    NSMutableString *result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
+    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+    NSMutableString *result = nil;
+    if (superClassString&&superClassString.length>0) {
+        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
+    }else{
+        result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
+    }
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n@end"];
     
@@ -229,7 +235,13 @@
  *  @return
  */
 + (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
-    NSMutableString *result = [NSMutableString stringWithFormat:@"class %@: NSObject {\n",classInfo.className];
+    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+    NSMutableString *result = nil;
+    if (superClassString&&superClassString.length>0) {
+        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
+    }else{
+        result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
+    }
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n}"];
     if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
@@ -343,8 +355,16 @@
         NSMutableString *string = [NSMutableString stringWithString:templateString];
         if ([type isEqualToString:@"h"]) {
             [string appendString:@"#import <Foundation/Foundation.h>\n\n"];
+            NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+            if (superClassString&&superClassString.length>0) {
+                [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
+            }
         }else{
             [string appendString:@"import UIKit\n\n"];
+            NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+            if (superClassString&&superClassString.length>0) {
+                [string appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
+            }
         }
         templateString = [string copy];
     }
