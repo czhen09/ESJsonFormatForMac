@@ -19,8 +19,18 @@
 
 @interface ESJsonFormatManager()
 
+@property (class, nonatomic, strong, readonly) NSDictionary * dicSwitch;
+
 @end
+
 @implementation ESJsonFormatManager
+
++(NSDictionary *)dicSwitch{
+    return @{
+             @"id": @"ID",
+             @"description": @"desc",
+             };
+}
 
 + (NSString *)parsePropertyContentWithClassInfo:(ESClassInfo *)classInfo{
     NSMutableString *resultStr = [NSMutableString string];
@@ -66,14 +76,14 @@
  *  @param value     JSON里面key对应的NSDiction或者NSArray
  *  @param classInfo 类信息
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)formatObjcWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
     NSString *qualifierStr = @"copy";
     NSString *typeStr = @"NSString";
     //判断大小写
-    if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
-        key = [key uppercaseString];
+    if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+        key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
@@ -137,13 +147,13 @@
  *  @param value     JSON里面key对应的NSDiction或者NSArray
  *  @param classInfo 类信息
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
     NSString *typeStr = @"String?";
     //判断大小写
-    if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
-        key = [key uppercaseString];
+    if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+        key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
         return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
@@ -174,7 +184,6 @@
 }
 
 
-
 + (NSString *)parseClassHeaderContentWithClassInfo:(ESClassInfo *)classInfo{
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
         return [self parseClassContentForSwiftWithClassInfo:classInfo];
@@ -192,18 +201,15 @@
     NSMutableString *result = [NSMutableString stringWithString:@""];
     if ([ESJsonFormatSetting defaultSetting].impOjbClassInArray) {
         
-        
         BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
-        
-        if (isYYModel) {
+         if (isYYModel) {
+            [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
             
-            [result appendFormat:@"@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
         }else{
+            [result appendFormat:@"\n@implementation %@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo]];
             
-            [result appendFormat:@"@implementation %@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo]];
         }
-
-            
+        
     }else{
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
     }
@@ -228,15 +234,15 @@
  *
  *  @param classInfo 类信息
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)parseClassHeaderContentForOjbcWithClassInfo:(ESClassInfo *)classInfo{
     NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
     NSMutableString *result = nil;
     if (superClassString&&superClassString.length>0) {
-        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
+        result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n",classInfo.className,superClassString];
     }else{
-        result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
+        result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : NSObject\n",classInfo.className];
     }
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n@end"];
@@ -256,7 +262,7 @@
  *
  *  @param classInfo 类信息
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
     NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
@@ -283,11 +289,10 @@
  *
  *  @param classInfo 指定类信息
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)methodContentOfObjectClassInArrayWithClassInfo:(ESClassInfo *)classInfo{
     
-
     if (classInfo.propertyArrayDic.count==0) {
         return @"";
     }else{
@@ -300,18 +305,17 @@
             result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
         }
         
-        
         BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
         NSString *methodStr = nil;
         if (isYYModel) {
-            
             //append method content (objectClassInArray) if YYModel
             methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",result];
+            
         }else{
             // append method content (objectClassInArray)
             methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)objectClassInArray{\n    return @{%@};\n}\n",result];
+            
         }
-        
         return methodStr;
     }
 }
@@ -319,31 +323,22 @@
 
 + (NSString *)methodContentOfObjectIDInArrayWithClassInfo:(ESClassInfo *)classInfo{
     
-
-        NSMutableString *result = [NSMutableString string];
-        NSDictionary *dic = classInfo.classDic;
-         NSLog(@"%@",dic);
-        [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-        
-           
-            NSLog(@"key====%@",key);
-            NSLog(@"obj====%@",obj);
-            NSLog(@"=============================");
-            if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
-               
-
-                [result appendFormat:@"@\"%@\":@\"%@\", ",[key uppercaseString],key];
-            }
-            
-        }];
-        
-        if ([result hasSuffix:@", "]) {
-            result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
-            NSString *methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",result];
-            return methodStr;
+    NSMutableString *result = [NSMutableString string];
+    NSDictionary *dic = classInfo.classDic;
+     NSLog(@"%@",dic);
+    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+        NSLog(@"%@: _%@_",key,obj);
+        if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+            [result appendFormat:@"@\"%@\": @\"%@\", ",self.dicSwitch[key],key];
         }
+    }];
     
-        return result;
+    if ([result hasSuffix:@", "]) {
+        result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+        NSString *methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",result];
+        return methodStr;
+    }
+    return result;
 }
 
 /**
@@ -352,7 +347,7 @@
  *  @param classInfo 类信息
  *  @param type      .h或者.m或者.swift
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)dealHeaderStrWithClassInfo:(ESClassInfo *)classInfo type:(NSString *)type{
     //模板文字
@@ -398,7 +393,7 @@
 /**
  *  返回模板信息里面日期字符串
  *
- *  @return
+ *  @return NSString
  */
 + (NSString *)dateStr{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
