@@ -25,7 +25,18 @@
 + (NSString *)parsePropertyContentWithClassInfo:(ESClassInfo *)classInfo{
     NSMutableString *resultStr = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
-    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+    
+//    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+//        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+//            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
+//        }else{
+//            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
+//        }
+//    }];
+    
+    NSArray * list = [dic.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    [list enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSObject *obj = dic[key];
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
             [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
         }else{
@@ -34,6 +45,19 @@
     }];
     return resultStr;
 }
+
+//+ (NSString *)parsePropertyContentWithClassInfo:(ESClassInfo *)classInfo{
+//    NSMutableString *resultStr = [NSMutableString string];
+//    NSDictionary *dic = classInfo.classDic;
+//    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+//        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+//            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
+//        }else{
+//            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
+//        }
+//    }];
+//    return resultStr;
+//}
 
 /**
  *  格式化OC属性字符串
