@@ -49,7 +49,7 @@
         NSObject *obj = dic[key];
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
             [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
-        }else{
+        } else {
             [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
         }
     }];
@@ -87,26 +87,29 @@
     }
     if ([value isKindOfClass:[NSString class]]) {
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
-    }else if([value isKindOfClass:[@(YES) class]]){
+        
+    } else if ([value isKindOfClass:[@(YES) class]]){
         //the 'NSCFBoolean' is private subclass of 'NSNumber'
         qualifierStr = @"assign";
         typeStr = @"BOOL";
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,key];
-    }else if([value isKindOfClass:[NSNumber class]]){
+        
+    } else if ([value isKindOfClass:[NSNumber class]]){
         qualifierStr = @"assign";
         NSString *valueStr = [NSString stringWithFormat:@"%@",value];
-        if ([valueStr rangeOfString:@"."].location!=NSNotFound){
+        if ([valueStr rangeOfString:@"."].location != NSNotFound){
             typeStr = @"CGFloat";
-        }else{
+        } else {
             NSNumber *valueNumber = (NSNumber *)value;
             if ([valueNumber longValue]<2147483648) {
                 typeStr = @"NSInteger";
-            }else{
+            } else {
                 typeStr = @"long long";
             }
         }
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,key];
-    }else if([value isKindOfClass:[NSArray class]]){
+        
+    } else if ([value isKindOfClass:[NSArray class]]){
         NSArray *array = (NSArray *)value;
         
         //May be 'NSString'，will crash
@@ -115,9 +118,9 @@
         if ([firstObj isKindOfClass:[NSDictionary class]]) {
             ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
             genericTypeStr = [NSString stringWithFormat:@"<%@ *>",childInfo.className];
-        }else if ([firstObj isKindOfClass:[NSString class]]){
+        } else if ([firstObj isKindOfClass:[NSString class]]){
             genericTypeStr = @"<NSString *>";
-        }else if ([firstObj isKindOfClass:[NSNumber class]]){
+        } else if ([firstObj isKindOfClass:[NSNumber class]]){
             genericTypeStr = @"<NSNumber *>";
         }
         
@@ -127,7 +130,8 @@
             return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;",qualifierStr,typeStr,genericTypeStr,key];
         }
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
-    }else if ([value isKindOfClass:[NSDictionary class]]){
+        
+    } else if ([value isKindOfClass:[NSDictionary class]]){
         qualifierStr = @"strong";
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
         typeStr = childInfo.className;
@@ -157,22 +161,26 @@
     }
     if ([value isKindOfClass:[NSString class]]) {
         return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
-    }else if([value isKindOfClass:[@(YES) class]]){
+        
+    } else if ([value isKindOfClass:[@(YES) class]]){
         typeStr = @"Bool";
         return [NSString stringWithFormat:@"    var %@: %@ = false",key,typeStr];
-    }else if([value isKindOfClass:[NSNumber class]]){
+        
+    } else if ([value isKindOfClass:[NSNumber class]]){
         NSString *valueStr = [NSString stringWithFormat:@"%@",value];
         if ([valueStr rangeOfString:@"."].location!=NSNotFound){
             typeStr = @"Double";
-        }else{
+        } else {
             typeStr = @"Int";
         }
         return [NSString stringWithFormat:@"    var %@: %@ = 0",key,typeStr];
-    }else if([value isKindOfClass:[NSArray class]]){
+        
+    } else if ([value isKindOfClass:[NSArray class]]){
         ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
         NSString *type = childInfo.className;
         return [NSString stringWithFormat:@"    var %@: [%@]?",key,type==nil?@"String":type];
-    }else if ([value isKindOfClass:[NSDictionary class]]){
+        
+    } else if ([value isKindOfClass:[NSDictionary class]]){
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
         typeStr = childInfo.className;
         if (!typeStr) {
@@ -187,7 +195,7 @@
 + (NSString *)parseClassHeaderContentWithClassInfo:(ESClassInfo *)classInfo{
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
         return [self parseClassContentForSwiftWithClassInfo:classInfo];
-    }else{
+    } else {
         return [self parseClassHeaderContentForOjbcWithClassInfo:classInfo];
     }
 }
@@ -205,12 +213,12 @@
          if (isYYModel) {
             [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
             
-        }else{
+        } else {
             [result appendFormat:@"\n@implementation %@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo]];
             
         }
         
-    }else{
+    } else {
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
     }
     
@@ -241,7 +249,7 @@
     NSMutableString *result = nil;
     if (superClassString&&superClassString.length>0) {
         result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n",classInfo.className,superClassString];
-    }else{
+    } else {
         result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : NSObject\n",classInfo.className];
     }
     [result appendString:classInfo.propertyContent];
@@ -269,7 +277,7 @@
     NSMutableString *result = nil;
     if (superClassString&&superClassString.length>0) {
         result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
-    }else{
+    } else {
         result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
     }
     [result appendString:classInfo.propertyContent];
@@ -295,7 +303,7 @@
     
     if (classInfo.propertyArrayDic.count==0) {
         return @"";
-    }else{
+    } else {
         NSMutableString *result = [NSMutableString string];
         for (NSString *key in classInfo.propertyArrayDic) {
             ESClassInfo *childClassInfo = classInfo.propertyArrayDic[key];
@@ -311,7 +319,7 @@
             //append method content (objectClassInArray) if YYModel
             methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",result];
             
-        }else{
+        } else {
             // append method content (objectClassInArray)
             methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)objectClassInArray{\n    return @{%@};\n}\n",result];
             
@@ -378,7 +386,7 @@
             if (superClassString&&superClassString.length>0) {
                 [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
             }
-        }else{
+        } else {
             [string appendString:@"import UIKit\n\n"];
             NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
             if (superClassString&&superClassString.length>0) {
@@ -408,7 +416,7 @@
         [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.h",classInfo.className]] content:classInfo.classContentForH];
         //创建.m文件
         [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m",classInfo.className]] content:classInfo.classContentForM];
-    }else{
+    } else {
         //创建.swift文件
         [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.swift",classInfo.className]] content:classInfo.classContentForH];
     }
