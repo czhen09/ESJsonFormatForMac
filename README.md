@@ -1,4 +1,15 @@
 
+
+
+
+# Fork版
+## 2019-5-24
+* 软件版本升级到2.0;  
+* 添加模型属性排序支持；
+* 添加模型属性字段description->desc转化支持；
+
+---
+
 至前致谢：此工具核心内容来自[EnjoySR/ESJsonFormat-Xcode](https://github.com/EnjoySR/ESJsonFormat-Xcode)    
 
 附上[简书地址](http://www.jianshu.com/p/a5e26ae42d8b),在使用中有任何问题或者好的建议可以在简书或者GitHub issue
