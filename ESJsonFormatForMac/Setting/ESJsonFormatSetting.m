@@ -16,8 +16,7 @@ NSString *const kESJsonFormatUppercaseKeyWordForId = @"com.EnjoySR.ESJsonFormat.
 
 @implementation ESJsonFormatSetting
 
-+ (ESJsonFormatSetting *)defaultSetting
-{
++ (ESJsonFormatSetting *)defaultSetting{
     static dispatch_once_t once;
     static ESJsonFormatSetting *defaultSetting;
     dispatch_once(&once, ^ {
@@ -26,45 +25,46 @@ NSString *const kESJsonFormatUppercaseKeyWordForId = @"com.EnjoySR.ESJsonFormat.
                                    kESJsonFormatOutputToFiles: @NO,
                                    kESJsonFormatImpObjClassInArray: @YES,
                                    kESJsonFormatUppercaseKeyWordForId: @YES};
-                  [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+        
+        [NSUserDefaults.standardUserDefaults registerDefaults:defaults];
     });
     return defaultSetting;
 }
 
 - (void)setUseGeneric:(BOOL)useGeneric{
-    [[NSUserDefaults standardUserDefaults] setBool:useGeneric forKey:kESJsonFormatGeneric];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setBool:useGeneric forKey:kESJsonFormatGeneric];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 - (BOOL)useGeneric{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kESJsonFormatGeneric];
+    return [NSUserDefaults.standardUserDefaults boolForKey: kESJsonFormatGeneric];
 }
 
 - (void)setImpOjbClassInArray:(BOOL)impOjbClassInArray{
-    [[NSUserDefaults standardUserDefaults] setBool:impOjbClassInArray forKey:kESJsonFormatImpObjClassInArray];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setBool:impOjbClassInArray forKey: kESJsonFormatImpObjClassInArray];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 - (BOOL)impOjbClassInArray{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kESJsonFormatImpObjClassInArray];
+    return [NSUserDefaults.standardUserDefaults boolForKey: kESJsonFormatImpObjClassInArray];
 }
 
 - (void)setOutputToFiles:(BOOL)outputToFiles{
-    [[NSUserDefaults standardUserDefaults] setBool:outputToFiles forKey:kESJsonFormatOutputToFiles];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setBool:outputToFiles forKey: kESJsonFormatOutputToFiles];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 - (BOOL)outputToFiles{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kESJsonFormatOutputToFiles];
+    return [NSUserDefaults.standardUserDefaults boolForKey: kESJsonFormatOutputToFiles];
 }
 
 - (void)setUppercaseKeyWordForId:(BOOL)uppercaseKeyWordForId{
-    [[NSUserDefaults standardUserDefaults] setBool:uppercaseKeyWordForId forKey:kESJsonFormatUppercaseKeyWordForId];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUserDefaults.standardUserDefaults setBool:uppercaseKeyWordForId forKey: kESJsonFormatUppercaseKeyWordForId];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 - (BOOL)uppercaseKeyWordForId{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kESJsonFormatUppercaseKeyWordForId];
+    return [NSUserDefaults.standardUserDefaults boolForKey: kESJsonFormatUppercaseKeyWordForId];
 }
 
 @end

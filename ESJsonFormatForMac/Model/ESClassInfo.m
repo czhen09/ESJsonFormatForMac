@@ -12,8 +12,7 @@
 
 @implementation ESClassInfo
 
-- (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic
-{
+- (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic{
     self = [super init];
     if (self) {
         self.classNameKey = classNameKey;
@@ -45,7 +44,7 @@
     }];
     
     [self.propertyArrayDic enumerateKeysAndObjectsUsingBlock:^(id key, ESClassInfo *classInfo, BOOL *stop) {
-        if ([ESJsonFormatSetting defaultSetting].useGeneric) {
+        if (ESJsonFormatSetting.defaultSetting.useGeneric) {
             [result addObject:classInfo];
         }
         [result addObjectsFromArray:classInfo.atClassArray];

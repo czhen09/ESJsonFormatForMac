@@ -29,7 +29,7 @@
 }
 
 + (BOOL)isXcode7AndLater{
-    return [self XcodePreVsersion]>=7;
+    return [self XcodePreVsersion] >= 7;
 }
 
 @end

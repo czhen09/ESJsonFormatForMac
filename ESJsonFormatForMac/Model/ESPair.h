@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface ESPair : NSObject
+
 @property (nonatomic) id first;
 @property (nonatomic) id second;
 + (instancetype) createWithFirst:(id)first second:(id)second;
+
 @end

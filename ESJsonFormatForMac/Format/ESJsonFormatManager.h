@@ -15,7 +15,6 @@
  *
  *  @param classInfo 类信息
  *
- *  @return 
  */
 + (NSString *)parsePropertyContentWithClassInfo:(ESClassInfo *)classInfo;
 
@@ -44,7 +43,6 @@
  *
  *  @param classInfo 指定类信息
  *
- *  @return
  */
 + (NSString *)methodContentOfObjectClassInArrayWithClassInfo:(ESClassInfo *)classInfo;
 

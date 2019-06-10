@@ -17,9 +17,7 @@
 @property (weak) IBOutlet NSView *implementCustomView;
 
 @property (weak) IBOutlet NSLayoutConstraint *fieldBottomConstraint;
-
 @property (weak) IBOutlet NSLayoutConstraint *checkButtonBottomConstraint;
-
 
 @end
 
@@ -27,9 +25,10 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    self.classNameField.delegate = self;
     self.window.delegate = self;
     self.msgLabel.stringValue = self.msg;
+    
+    self.classNameField.delegate = self;
     self.classNameField.stringValue = self.className;
     [self.classNameField becomeFirstResponder];
     
@@ -63,15 +62,15 @@
 
 -(void)windowWillClose:(NSNotification *)notification{
     [NSApp stopModal];
-    [NSApp endSheet:[self window]];
-    [[self window] orderOut:nil];
+    [NSApp endSheet:self.window];
+    [self.window orderOut:nil];
 }
 
 
 #pragma mark - nstextfiled delegate
 
 -(void)controlTextDidEndEditing:(NSNotification *)notification{
-    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement){
+    if ([notification.userInfo[@"NSTextMovement"] intValue] == NSReturnTextMovement){
         [self enterBtnClick:nil];
     }
 }

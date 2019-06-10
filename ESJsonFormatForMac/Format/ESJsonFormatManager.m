@@ -36,18 +36,10 @@
     NSMutableString *resultStr = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
     
-//    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-//        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
-//            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
-//        }else{
-//            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
-//        }
-//    }];
-    
     NSArray * list = [dic.allKeys sortedArrayUsingSelector:@selector(compare:)];
     [list enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
         NSObject *obj = dic[key];
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+        if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
             [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
         } else {
             [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
@@ -60,7 +52,7 @@
 //    NSMutableString *resultStr = [NSMutableString string];
 //    NSDictionary *dic = classInfo.classDic;
 //    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-//        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+//        if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
 //            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
 //        }else{
 //            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
@@ -82,7 +74,7 @@
     NSString *qualifierStr = @"copy";
     NSString *typeStr = @"NSString";
     //判断大小写
-    if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+    if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
         key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
@@ -101,7 +93,7 @@
             typeStr = @"CGFloat";
         } else {
             NSNumber *valueNumber = (NSNumber *)value;
-            if ([valueNumber longValue]<2147483648) {
+            if (valueNumber.longValue < 2147483648) {
                 typeStr = @"NSInteger";
             } else {
                 typeStr = @"long long";
@@ -126,7 +118,7 @@
         
         qualifierStr = @"strong";
         typeStr = @"NSArray";
-        if ([ESJsonFormatSetting defaultSetting].useGeneric && [ESUtils isXcode7AndLater]) {
+        if (ESJsonFormatSetting.defaultSetting.useGeneric && [ESUtils isXcode7AndLater]) {
             return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;",qualifierStr,typeStr,genericTypeStr,key];
         }
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
@@ -156,7 +148,7 @@
 + (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
     NSString *typeStr = @"String?";
     //判断大小写
-    if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+    if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
         key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
@@ -193,7 +185,7 @@
 
 
 + (NSString *)parseClassHeaderContentWithClassInfo:(ESClassInfo *)classInfo{
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
         return [self parseClassContentForSwiftWithClassInfo:classInfo];
     } else {
         return [self parseClassHeaderContentForOjbcWithClassInfo:classInfo];
@@ -202,14 +194,14 @@
 
 + (NSString *)parseClassImpContentWithClassInfo:(ESClassInfo *)classInfo{
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
         return @"";
     }
     
     NSMutableString *result = [NSMutableString stringWithString:@""];
-    if ([ESJsonFormatSetting defaultSetting].impOjbClassInArray) {
+    if (ESJsonFormatSetting.defaultSetting.impOjbClassInArray) {
         
-        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        BOOL isYYModel = [NSUserDefaults.standardUserDefaults boolForKey:@"isYYModel"];
          if (isYYModel) {
             [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
             
@@ -222,7 +214,7 @@
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
     }
     
-    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
+    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"m"]];
         //import
@@ -245,7 +237,7 @@
  *  @return NSString
  */
 + (NSString *)parseClassHeaderContentForOjbcWithClassInfo:(ESClassInfo *)classInfo{
-    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
     NSMutableString *result = nil;
     if (superClassString&&superClassString.length>0) {
         result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n",classInfo.className,superClassString];
@@ -255,7 +247,7 @@
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n@end"];
     
-    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
+    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"h"]];
         //@class
@@ -273,7 +265,7 @@
  *  @return NSString
  */
 + (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
-    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
     NSMutableString *result = nil;
     if (superClassString&&superClassString.length>0) {
         result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
@@ -282,7 +274,7 @@
     }
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n}"];
-    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
+    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         [result insertString:@"import UIKit\n\n" atIndex:0];
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"swift"]];
@@ -313,7 +305,7 @@
             result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
         }
         
-        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        BOOL isYYModel = [NSUserDefaults.standardUserDefaults boolForKey:@"isYYModel"];
         NSString *methodStr = nil;
         if (isYYModel) {
             //append method content (objectClassInArray) if YYModel
@@ -333,10 +325,10 @@
     
     NSMutableString *result = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
-     NSLog(@"%@",dic);
+    NSLog(@"%@",dic);
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-        NSLog(@"%@: _%@_",key,obj);
-        if ([self.dicSwitch.allKeys containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+//        NSLog(@"%@: _%@_",key,obj);
+        if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
             [result appendFormat:@"@\"%@\": @\"%@\", ",self.dicSwitch[key],key];
         }
     }];
@@ -366,12 +358,12 @@
     //替换用户名
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:NSFullUserName()];
     //产品名
-    NSString *productName = [ESPbxprojInfo shareInstance].productName;
+    NSString *productName = ESPbxprojInfo.shareInstance.productName;
     if (productName.length) {
         templateString = [templateString stringByReplacingOccurrencesOfString:@"__PRODUCTNAME__" withString:productName];
     }
     //组织名
-    NSString *organizationName = [ESPbxprojInfo shareInstance].organizationName;
+    NSString *organizationName = ESPbxprojInfo.shareInstance.organizationName;
     if (organizationName.length) {
         templateString = [templateString stringByReplacingOccurrencesOfString:@"__ORGANIZATIONNAME__" withString:organizationName];
     }
@@ -382,13 +374,13 @@
         NSMutableString *string = [NSMutableString stringWithString:templateString];
         if ([type isEqualToString:@"h"]) {
             [string appendString:@"#import <Foundation/Foundation.h>\n\n"];
-            NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
             if (superClassString&&superClassString.length>0) {
                 [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
             }
         } else {
             [string appendString:@"import UIKit\n\n"];
-            NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
             if (superClassString&&superClassString.length>0) {
                 [string appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
             }
@@ -406,12 +398,12 @@
 + (NSString *)dateStr{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yy/MM/dd";
-    return [formatter stringFromDate:[NSDate date]];
+    return [formatter stringFromDate: NSDate.date];
 }
 
 
 + (void)createFileWithFolderPath:(NSString *)folderPath classInfo:(ESClassInfo *)classInfo{
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
+    if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
         //创建.h文件
         [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.h",classInfo.className]] content:classInfo.classContentForH];
         //创建.m文件
@@ -429,7 +421,7 @@
  *  @param content  文件内容
  */
 + (void)createFileWithFileName:(NSString *)FileName content:(NSString *)content{
-    NSFileManager *manager = [NSFileManager defaultManager];
+    NSFileManager *manager = NSFileManager.defaultManager;
     [manager createFileAtPath:FileName contents:[content dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
 }
 
