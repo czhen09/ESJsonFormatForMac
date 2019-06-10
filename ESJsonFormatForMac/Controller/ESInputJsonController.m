@@ -524,7 +524,6 @@
              __weak typeof(self) weakSelf = self;
             [self.dialog setDataWithMsg:msg defaultClassName:ESRootClassName enter:^(NSString *className) {
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
-                
                 if (weakSelf.isSwift) {
                     weakSelf.hLabel.stringValue = [NSString stringWithFormat:@"%@.swift",className];
                      weakSelf.mLabel.stringValue  = @"";
@@ -534,10 +533,9 @@
                     weakSelf.mLabel.stringValue  = [NSString stringWithFormat:@"%@.m",className];
                     
                 }
-                
             }];
             
-            [NSApp beginSheet:[self.dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp beginSheet:[self.dialog window] modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
             [NSApp runModalForWindow:[self.dialog window]];
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
@@ -554,8 +552,8 @@
             [dialog setDataWithMsg:msg defaultClassName:ESRootClassName enter:^(NSString *className) {
                 rootClassName = className;
             }];
-            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[dialog window]];
+            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp runModalForWindow:dialog.window];
             
             //并且提示用户输入JSON对应的key的名字
             dialog = [[ESDialogController alloc] initWithWindowNibName:@"ESDialogController"];
@@ -565,8 +563,8 @@
                 NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:rootClassName classDic:dic];
             }];
-            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[dialog window]];
+            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp runModalForWindow:dialog.window];
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
@@ -577,8 +575,8 @@
                 NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:ESRootClassName classDic:dic];
             }];
-            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[dialog window]];
+            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp runModalForWindow:dialog.window];
             [self dealPropertyNameWithClassInfo:classInfo];
         }
     }
@@ -616,8 +614,8 @@
                 }
                 childClassName = className;
             }];
-            [NSApp beginSheet:[dialog window] modalForWindow:[NSApp mainWindow] modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[dialog window]];
+            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp runModalForWindow:dialog.window];
             //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:obj];
