@@ -16,13 +16,14 @@
 #import "ESClassInfo.h"
 
 @interface ESJsonFormat()<ESInputJsonControllerDelegate>
+
 @property (nonatomic, strong) ESInputJsonController *inputCtrl;
 @property (nonatomic, strong) ESSettingController *settingCtrl;
 @property (nonatomic, strong) id eventMonitor;
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @property (nonatomic, copy) NSString *currentFilePath;
 @property (nonatomic, copy) NSString *currentProjectPath;
-@property (nonatomic) NSTextView *currentTextView;
+@property (nonatomic, strong) NSTextView *currentTextView;
 @property (nonatomic, assign) BOOL notiTag;
 
 @end

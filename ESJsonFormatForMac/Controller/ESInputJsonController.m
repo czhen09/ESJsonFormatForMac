@@ -201,7 +201,7 @@
     }
     
     textField.font = [NSFont systemFontOfSize:15.0f];
-    textField.textColor = [NSColor blackColor];
+    textField.textColor = NSColor.blackColor;
     textField.drawsBackground = NO;
     textField.bordered = NO;
     textField.delegate = self;
@@ -232,13 +232,11 @@
     //
     DataModel *dataModel = [DataModel new];
     if (txf.tag < 2000 && txf.tag >= 1000) {
-        
         dataModel.key = txf.stringValue;
         DataModel *data = self.dataArr[txf.tag-1000];
         data.key = dataModel.key;
         
     } else if (txf.tag >= 2000) {
-        
         dataModel.value = txf.stringValue;
         DataModel *data = self.dataArr[txf.tag-2000];
         data.value = dataModel.value;
@@ -248,7 +246,6 @@
 //        }
         
     } else if (txf.tag == 998) {
-        
         //保存BaseUrl
         NSString *originalBase_Url = [NSUserDefaults.standardUserDefaults valueForKey:@"Base_Url"];
         NSString *newBase_Url       = self.inputUrlTxf.stringValue;
@@ -265,9 +262,7 @@
     
 }
 
-
 - (NSString *)outputParamsStrByDataArr:(NSArray *)dataArr{
-    
     NSString *tempStr = [NSString stringWithFormat:@"\n\n%@\n",@"NSMutableDictionary * params = [NSMutableDictionary dictionary];"];
     NSString *paramsStr = tempStr;
     for (DataModel *dataModel in self.dataArr) {
@@ -365,7 +360,6 @@
     self.isSwift = (sender.selectedSegment == 0) ? YES : NO;
     
     [NSUserDefaults.standardUserDefaults setBool:self.isSwift forKey:@"isSwift"];
-    
     ESJsonFormat.instance.isSwift = self.isSwift;
 }
 
@@ -427,7 +421,7 @@
 
 - (void)copyContent:(NSString *)str{
     NSPasteboard *pab = [NSPasteboard generalPasteboard];
-    [pab declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+    [pab declareTypes:@[NSStringPboardType] owner:self];
     [pab setString:str forType:NSStringPboardType];
     
 }
@@ -526,17 +520,17 @@
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
                 if (weakSelf.isSwift) {
                     weakSelf.hLabel.stringValue = [NSString stringWithFormat:@"%@.swift",className];
-                     weakSelf.mLabel.stringValue  = @"";
+                     weakSelf.mLabel.stringValue = @"";
                     
                 } else {
                     weakSelf.hLabel.stringValue = [NSString stringWithFormat:@"%@.h",className];
-                    weakSelf.mLabel.stringValue  = [NSString stringWithFormat:@"%@.m",className];
+                    weakSelf.mLabel.stringValue = [NSString stringWithFormat:@"%@.m",className];
                     
                 }
             }];
             
-            [NSApp beginSheet:[self.dialog window] modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:[self.dialog window]];
+            [NSApp beginSheet:self.dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+            [NSApp runModalForWindow:self.dialog.window];
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
             //不生成到文件，Root class 里面用户自己创建
@@ -626,7 +620,7 @@
                 //如果是 NSArray 取出第一个元素向下遍历
                 NSArray *array = obj;
                 if (array.firstObject) {
-                    NSObject *obj = [array firstObject];
+                    NSObject *obj = array.firstObject;
                     //May be 'NSString'，will crash
                     if ([obj isKindOfClass:[NSDictionary class]]) {
                         ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:(NSDictionary *)obj];
