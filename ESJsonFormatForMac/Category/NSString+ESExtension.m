@@ -10,6 +10,22 @@
 
 @implementation NSString (ESExtension)
 
+-(id)objcValue{
+    NSString * string = self;
+    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"jsonString=%@",string);
+    NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                    options:NSJSONReadingMutableContainers
+                                                      error:&err];
+    if (err) {
+        return err;
+    }else{
+        return dicOrArray;
+    }
+}
+
 - (NSString *)substringWithStartStr:(NSString *)start endStr:(NSString *)endStr{
     NSString *resultStr = nil;
     NSRange range;
@@ -24,4 +40,5 @@
     }
     return resultStr;
 }
+
 @end

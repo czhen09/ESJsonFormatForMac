@@ -14,6 +14,8 @@
 #import <Cocoa/Cocoa.h>
 #import "ESUtils.h"
 #import "NSString+ESExtension.h"
+#import "NSApplication+Helper.h"
+
 #endif
 
 
@@ -22,9 +24,9 @@
 #endif
 
 #ifdef __DEBUG__
-#define NSLog(...) NSLog(__VA_ARGS__)
+#define DDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
-#define NSLog(...) do{} while(0)
+#define DDLog(...)
 #endif
 
 #define ESFormatResultNotification @"ESFormatResultNotification"

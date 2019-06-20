@@ -381,24 +381,24 @@
     
     [NSUserDefaults.standardUserDefaults setValue:self.superClassTextfield.stringValue forKey:@"SuperClass"];
     
-       //self.classContentTextView.string = @"";
-       //self.mainClassContentTextView.string = @"";
-       self.hContentTextView.string = @"";
-       self.mContentTextView.string = @"";
-    
-       NSTextView *textView = self.inputTextView;
-       id result = [self dictionaryWithJsonStr:textView.string];
-       if ([result isKindOfClass:[NSError class]]) {
-           NSError *error = result;
-           NSAlert *alert = [NSAlert alertWithError:error];
-           [alert runModal];
-           NSLog(@"Error：Json is invalid");
-       } else {
-           ESClassInfo *classInfo = [self dealClassNameWithJsonResult:result];
-           [self close];
-           [self outputResult:classInfo];
-           
-       }
+   //self.classContentTextView.string = @"";
+   //self.mainClassContentTextView.string = @"";
+   self.hContentTextView.string = @"";
+   self.mContentTextView.string = @"";
+
+   NSTextView *textView = self.inputTextView;
+   id result = [self dictionaryWithJsonStr:textView.string];
+   if ([result isKindOfClass:[NSError class]]) {
+       NSError *error = result;
+       NSAlert *alert = [NSAlert alertWithError:error];
+       [alert runModal];
+       NSLog(@"Error：Json is invalid");
+   } else {
+       ESClassInfo *classInfo = [self dealClassNameWithJsonResult:result];
+       [self close];
+       [self outputResult:classInfo];
+       
+   }
 
 }
 
@@ -529,8 +529,7 @@
                 }
             }];
             
-            [NSApp beginSheet:self.dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:self.dialog.window];
+            [NSApplication beginSheet:self.dialog];
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
             //不生成到文件，Root class 里面用户自己创建
@@ -546,9 +545,9 @@
             [dialog setDataWithMsg:msg defaultClassName:ESRootClassName enter:^(NSString *className) {
                 rootClassName = className;
             }];
-            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:dialog.window];
-            
+
+            [NSApplication beginSheet:dialog];
+
             //并且提示用户输入JSON对应的key的名字
             dialog = [[ESDialogController alloc] initWithWindowNibName:@"ESDialogController"];
             msg = [NSString stringWithFormat:@"The JSON is an array,the correspond 'key' is:"];
@@ -557,8 +556,8 @@
                 NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:rootClassName classDic:dic];
             }];
-            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:dialog.window];
+
+            [NSApplication beginSheet:dialog];
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
@@ -569,13 +568,14 @@
                 NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
                 classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:ESRootClassName classDic:dic];
             }];
-            [NSApp beginSheet:dialog.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
-            [NSApp runModalForWindow:dialog.window];
+
+            [NSApplication beginSheet:dialog];
             [self dealPropertyNameWithClassInfo:classInfo];
         }
     }
     return classInfo;
 }
+
 
 /**
  *  处理属性名字(用户输入属性对应字典对应类或者集合里面对应类的名字)
@@ -681,7 +681,7 @@
         panel.canChooseFiles = NO;
         
         if ([panel runModal] == NSModalResponseOK) {
-            NSString *folderPath = [[[panel URLs] objectAtIndex:0] relativePath];
+            NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
@@ -696,24 +696,6 @@
             [self.hContentTextView insertText:classInfo.atClassContent replacementRange:NSMakeRange(0, self.hContentTextView.string.length)];
             [self.hContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classContentForH] replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
             [self.hContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForH] replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
-            
-            //.m文件内容不能使用废除的insert方法插入，否则""将失效；
-//            [self.mContentTextView insertText:classInfo.classContentForM replacementRange:NSMakeRange(0, self.mContentTextView.string.length)];
-//            [self.mContentTextView insertText:[NSString stringWithFormat:@"\n%@",classInfo.classInsertTextViewContentForM] replacementRange:NSMakeRange(self.mContentTextView.string.length,0)];
-            
-//             //如果不输入主类的话，就可以分开展示
-//            //先添加主类的属性
-//            [self.mainClassContentTextView insertText:classInfo.propertyContent];
-//            
-//            //再添加把其他类的的字符串拼接到最后面
-//            [self.hContentTextView insertText:classInfo.classInsertTextViewContentForH replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];
-//            
-//            //@class
-//            [self.classContentTextView insertText:classInfo.atClassContent];
-            
-            
-//            //.m文件
-//            [self.mContentTextView insertText:classInfo.classInsertTextViewContentForM replacementRange:NSMakeRange(0, self.mContentTextView.string.length)];
             
         } else {
         
@@ -731,9 +713,9 @@
 - (void)creatFile{
     NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"];
     if (folderPath) {
-        
         [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hLabel.stringValue mFileName:self.mLabel.stringValue hContent:self.hContentTextView.string mContent:self.mContentTextView.string];
         [NSWorkspace.sharedWorkspace openFile:folderPath];
+        
     } else {
         NSOpenPanel *panel = NSOpenPanel.openPanel;
         panel.title = @"ESJsonFormat";
@@ -741,7 +723,7 @@
         panel.canChooseFiles = NO;
         
         if ([panel runModal] == NSModalResponseOK) {
-            folderPath = [[[panel URLs] objectAtIndex:0] relativePath];
+            folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:@"folderPath"];
             NSLog(@"%@",folderPath);
             [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hLabel.stringValue mFileName:self.mLabel.stringValue hContent:self.hContentTextView.string mContent:self.mContentTextView.string];

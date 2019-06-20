@@ -91,7 +91,7 @@
         panel.canChooseFiles = NO;
         
         if (panel.runModal == NSModalResponseOK) {
-            NSString *folderPath = [[[panel URLs] objectAtIndex:0] relativePath];
+            NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }

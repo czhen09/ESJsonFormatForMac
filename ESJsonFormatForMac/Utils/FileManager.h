@@ -14,7 +14,7 @@
 - (void)handleBaseData:(NSString *)folderPath
              hFileName:(NSString *)hFileName
              mFileName:(NSString *)mFileName
-             hContent :(NSString *)hContent
-             mContent :(NSString *)mContent;
+              hContent:(NSString *)hContent
+              mContent:(NSString *)mContent;
 
 @end

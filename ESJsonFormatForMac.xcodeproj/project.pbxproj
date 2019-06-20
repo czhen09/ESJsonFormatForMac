@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14F92BE222B9F74A00A5C5E4 /* NSApplication+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BE122B9F74A00A5C5E4 /* NSApplication+Helper.m */; };
+		14F92C2422BB7EA300A5C5E4 /* NSFileManager+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C2222BB7EA300A5C5E4 /* NSFileManager+Helper.m */; };
 		FB4532681EE01AAD00B5457C /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4532671EE01AAD00B5457C /* DataModel.m */; };
 		FB49E6BD1EE106BE00789060 /* HttpRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB49E6BC1EE106BE00789060 /* HttpRequestTool.m */; };
 		FB63B6E11EF01F0800802A5E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63B6E01EF01F0800802A5E /* FileManager.m */; };
@@ -53,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14F92BE022B9F74A00A5C5E4 /* NSApplication+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSApplication+Helper.h"; sourceTree = "<group>"; };
+		14F92BE122B9F74A00A5C5E4 /* NSApplication+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+Helper.m"; sourceTree = "<group>"; };
+		14F92C2222BB7EA300A5C5E4 /* NSFileManager+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Helper.m"; sourceTree = "<group>"; };
+		14F92C2322BB7EA300A5C5E4 /* NSFileManager+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Helper.h"; sourceTree = "<group>"; };
 		FB4532661EE01AAD00B5457C /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		FB4532671EE01AAD00B5457C /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		FB49E6BB1EE106BE00789060 /* HttpRequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestTool.h; sourceTree = "<group>"; };
@@ -219,6 +225,10 @@
 				FB7C77181EC5608200949F64 /* NSObject_Extension.m */,
 				FB7C77191EC5608200949F64 /* NSString+ESExtension.h */,
 				FB7C771A1EC5608200949F64 /* NSString+ESExtension.m */,
+				14F92BE022B9F74A00A5C5E4 /* NSApplication+Helper.h */,
+				14F92BE122B9F74A00A5C5E4 /* NSApplication+Helper.m */,
+				14F92C2322BB7EA300A5C5E4 /* NSFileManager+Helper.h */,
+				14F92C2222BB7EA300A5C5E4 /* NSFileManager+Helper.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -414,6 +424,7 @@
 			files = (
 				FB7C77381EC560B700949F64 /* ESJsonFormatManager.m in Sources */,
 				FB7C76B61EC554B100949F64 /* ViewController.m in Sources */,
+				14F92BE222B9F74A00A5C5E4 /* NSApplication+Helper.m in Sources */,
 				FB7C77241EC5608200949F64 /* ESUtils.m in Sources */,
 				FB7C772E1EC5608D00949F64 /* ESClassInfo.m in Sources */,
 				FB7C77231EC5608200949F64 /* ESJsonFormatSetting.m in Sources */,
@@ -429,6 +440,7 @@
 				FB4532681EE01AAD00B5457C /* DataModel.m in Sources */,
 				FB7C77311EC5608D00949F64 /* ESPbxprojInfo.m in Sources */,
 				FB7C77221EC5608200949F64 /* NSString+ESExtension.m in Sources */,
+				14F92C2422BB7EA300A5C5E4 /* NSFileManager+Helper.m in Sources */,
 				FB7C77301EC5608D00949F64 /* ESPair.m in Sources */,
 				FB49E6BD1EE106BE00789060 /* HttpRequestTool.m in Sources */,
 			);
