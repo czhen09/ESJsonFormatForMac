@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ESJsonFormatForMac/Controller/ESInputJsonController.m"
-            timestampString = "582719802.092205"
+            timestampString = "583222481.06905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "-enterButtonClick:"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
+            landmarkName = "-refreshUI:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ESJsonFormatForMac/Format/ESJsonFormat.m"
+            timestampString = "583222511.9397219"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-notificationLog:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

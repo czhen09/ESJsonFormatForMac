@@ -370,7 +370,7 @@
     //时间
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__DATE__" withString:[self dateStr]];
     
-    if ([type isEqualToString:@"h"] || [type isEqualToString:@"switf"]) {
+    if ([type isEqualToString:@"h"] || [type isEqualToString:@"swift"]) {
         NSMutableString *string = [NSMutableString stringWithString:templateString];
         if ([type isEqualToString:@"h"]) {
             [string appendString:@"#import <Foundation/Foundation.h>\n\n"];

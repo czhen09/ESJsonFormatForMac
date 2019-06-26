@@ -18,6 +18,9 @@
 #import "DataModel.h"
 #import "HttpRequestTool.h"
 #import "FileManager.h"
+
+#import "NSFileManager+Helper.h"
+
 @interface ESInputJsonController ()<NSTextViewDelegate,NSTableViewDataSource,NSTabViewDelegate,NSTextFieldDelegate,NSTextDelegate>
 
 /**
@@ -82,6 +85,19 @@
     [self.tableView reloadData];
     [self creatAddAndDeledateBtn];
     
+    [self testNSFileManager];
+}
+
+-(void)testNSFileManager{
+    NSString * folderPath = @"/Users/shang/Downloads";
+    NSFileManager *manager = NSFileManager.defaultManager;
+    NSString *fileAtPath = [folderPath stringByAppendingPathComponent:@"BNRootModel.h"];
+    bool isSuccess = [manager createFileAtPath:fileAtPath contents:[@"22222" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+    
+    bool isExist = [NSFileManager.defaultManager fileExistsAtPath:fileAtPath];
+    bool isWritable = [NSFileManager.defaultManager isWritableFileAtPath:folderPath];
+    
+    DDLog(@"__%@_%@_%@", @(isWritable), @(isExist), @(isSuccess));
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -107,7 +123,6 @@
     }
     return self;
 }
-
 
 #pragma mark - Private Methods
 - (void)creatAddAndDeledateBtn{
@@ -397,9 +412,7 @@
        ESClassInfo *classInfo = [self dealClassNameWithJsonResult:result];
        [self close];
        [self outputResult:classInfo];
-       
    }
-
 }
 
 
@@ -501,9 +514,7 @@
 #pragma mark - Change ESJsonFormat
 /**
  *  初始类名，RootClass/JSON为数组/创建文件与否
- *
  *  @param result JSON转成字典或者数组
- *
  *  @return 类信息
  */
 - (ESClassInfo *)dealClassNameWithJsonResult:(id)result{
@@ -576,12 +587,9 @@
     return classInfo;
 }
 
-
 /**
  *  处理属性名字(用户输入属性对应字典对应类或者集合里面对应类的名字)
- *
  *  @param classInfo 要处理的ClassInfo
- *
  *  @return 处理完毕的ClassInfo
  */
 - (ESClassInfo *)dealPropertyNameWithClassInfo:(ESClassInfo *)classInfo{
