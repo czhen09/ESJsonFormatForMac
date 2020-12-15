@@ -16,13 +16,14 @@
 #import "ESClassInfo.h"
 
 @interface ESJsonFormat()<ESInputJsonControllerDelegate>
+
 @property (nonatomic, strong) ESInputJsonController *inputCtrl;
 @property (nonatomic, strong) ESSettingController *settingCtrl;
 @property (nonatomic, strong) id eventMonitor;
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @property (nonatomic, copy) NSString *currentFilePath;
 @property (nonatomic, copy) NSString *currentProjectPath;
-@property (nonatomic) NSTextView *currentTextView;
+@property (nonatomic, strong) NSTextView *currentTextView;
 @property (nonatomic, assign) BOOL notiTag;
 
 @end
@@ -30,42 +31,38 @@
 @implementation ESJsonFormat
 
 + (instancetype)sharedPlugin{
-    
     return sharedPlugin;
 }
 
 + (instancetype)instance{
-    
     return instance;
 }
 
-- (id)initWithBundle:(NSBundle *)plugin
-{
+- (id)initWithBundle:(NSBundle *)plugin{
     if (self = [super init]) {
         // reference to plugin's bundle, for resource access
         self.bundle = plugin;
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        [NSNotificationCenter.defaultCenter addObserver:self
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationLog:) name:NSTextViewDidChangeSelectionNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationLog:) name:@"IDEEditorDocumentDidChangeNotification" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationLog:) name:@"PBXProjectDidOpenNotification" object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:NSTextViewDidChangeSelectionNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"IDEEditorDocumentDidChangeNotification" object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"PBXProjectDidOpenNotification" object:nil];
     }
     instance = self;
     return self;
 }
 
-- (void)notificationLog:(NSNotification *)notify
-{
+- (void)notificationLog:(NSNotification *)notify{
     if (!self.notiTag) return;
     if ([notify.name isEqualToString:NSTextViewDidChangeSelectionNotification]) {
         if ([notify.object isKindOfClass:[NSTextView class]]) {
             NSTextView *text = (NSTextView *)notify.object;
             self.currentTextView = text;
         }
-    }else if ([notify.name isEqualToString:@"IDEEditorDocumentDidChangeNotification"]){
+    } else if ([notify.name isEqualToString:@"IDEEditorDocumentDidChangeNotification"]){
         //Track the current open paths
         NSObject *array = notify.userInfo[@"IDEEditorDocumentChangeLocationsKey"];
         NSURL *url = [[array valueForKey:@"documentURL"] firstObject];
@@ -78,26 +75,25 @@
 //                self.swift = NO;
 //            }
         }
-    }else if ([notify.name isEqualToString:@"PBXProjectDidOpenNotification"]){
+    } else if ([notify.name isEqualToString:@"PBXProjectDidOpenNotification"]){
         self.currentProjectPath = [notify.object valueForKey:@"path"];
-        [[ESPbxprojInfo shareInstance] setParamsWithPath:[self.currentProjectPath stringByAppendingPathComponent:@"project.pbxproj"]];
+        [ESPbxprojInfo.shareInstance setParamsWithPath:[self.currentProjectPath stringByAppendingPathComponent:@"project.pbxproj"]];
     }
 }
 
 -(void)outputResult:(NSNotification*)noti{
     ESClassInfo *classInfo = noti.object;
-    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
+    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        [panel setTitle:@"ESJsonFormat"];
-        [panel setCanChooseDirectories:YES];
-        [panel setCanCreateDirectories:YES];
-        [panel setCanChooseFiles:NO];
+        NSOpenPanel *panel = NSOpenPanel.openPanel;
+        panel.title = @"ESJsonFormat";
+        panel.canChooseDirectories = YES;
+        panel.canChooseFiles = NO;
         
-        if ([panel runModal] == NSModalResponseOK) {
-            NSString *folderPath = [[[panel URLs] objectAtIndex:0] relativePath];
+        if (panel.runModal == NSModalResponseOK) {
+            NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
-            [[NSWorkspace sharedWorkspace] openFile:folderPath];
+            [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
         
     }else{
@@ -125,7 +121,7 @@
             NSString *originalContent = [NSString stringWithContentsOfURL:writeUrl encoding:NSUTF8StringEncoding error:nil];
             
             //输出RootClass的impOjbClassInArray方法
-            if ([ESJsonFormatSetting defaultSetting].impOjbClassInArray) {
+            if (ESJsonFormatSetting.defaultSetting.impOjbClassInArray) {
                 NSString *methodStr = [ESJsonFormatManager methodContentOfObjectClassInArrayWithClassInfo:classInfo];
                 if (methodStr.length) {
                     NSRange lastEndRange = [originalContent rangeOfString:@"@end"];
@@ -149,7 +145,7 @@
 
 - (void)didApplicationFinishLaunchingNotification:(NSNotification*)noti{
     self.notiTag = YES;
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Window"];
     if (menuItem) {
         
@@ -169,7 +165,7 @@
         NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"ESJsonFormat" action:nil keyEquivalent:@""];
         item.submenu = menu;
     
-        [[menuItem submenu] addItem:item];
+        [menuItem.submenu addItem:item];
     }
 }
 
@@ -197,7 +193,7 @@
     self.notiTag = YES;
 }
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 

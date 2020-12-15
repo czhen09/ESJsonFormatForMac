@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DataModel : NSObject
+
 @property (readwrite,copy) NSString * key;
 @property (readwrite,copy) NSString * value;
+
 @end

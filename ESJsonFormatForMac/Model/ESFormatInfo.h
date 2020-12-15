@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *classInfos;
 
 /**
- *  @class 内容，用于在不创建文件的模式下使用。
+ *  内容，用于在不创建文件的模式下使用。
  */
 @property (nonatomic, copy) NSString *atClassContent;
 

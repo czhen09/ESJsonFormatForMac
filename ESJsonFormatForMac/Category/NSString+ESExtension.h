@@ -10,5 +10,7 @@
 
 @interface NSString (ESExtension)
 
+-(id)objcValue;
+
 - (NSString *)substringWithStartStr:(NSString *)start endStr:(NSString *)endStr;
 @end

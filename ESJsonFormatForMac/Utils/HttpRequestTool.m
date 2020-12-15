@@ -14,8 +14,7 @@ static HttpRequestTool *requestTool = nil;
 
 static id _instance;
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
@@ -25,18 +24,17 @@ static id _instance;
 
 
 //get请求
-+ (void)getWithUrlString:(NSString *)url parameters:(id)parameters success:(SuccessBlock)successBlock failure:(FailureBlock)failureBlock
-{
++ (void)getWithUrlString:(NSString *)url parameters:(id)parameters success:(SuccessBlock)successBlock failure:(FailureBlock)failureBlock{
     [self sharedInstance];
     NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:url];
     if ([parameters allKeys]) {
         [mutableUrl appendString:@"?"];
         for (id key in parameters) {
-            NSString *value = [[parameters objectForKey:key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            NSString *value = [parameters[key] stringByAddingPercentEncodingWithAllowedCharacters: NSCharacterSet.URLQueryAllowedCharacterSet];
             [mutableUrl appendString:[NSString stringWithFormat:@"%@=%@&", key, value]];
         }
     }
-    NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length - 1] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length - 1] stringByAddingPercentEncodingWithAllowedCharacters: NSCharacterSet.URLQueryAllowedCharacterSet];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];

@@ -13,14 +13,12 @@
 /**
  *  获取Xcode大版本
  *
- *  @return
  */
 + (NSInteger)XcodePreVsersion;
 
 /**
  *  是否是Xcode7或者之后
  *
- *  @return 
  */
 + (BOOL)isXcode7AndLater;
 

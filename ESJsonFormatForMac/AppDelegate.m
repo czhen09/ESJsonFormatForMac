@@ -17,9 +17,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
-
     self.inputJsonController = [[ESInputJsonController alloc] initWithNibName:@"ESInputJsonController" bundle:nil];
-    self.window = [[NSApplication sharedApplication] keyWindow];
+    self.window = NSApplication.sharedApplication.keyWindow;
     [self.window.contentView addSubview:self.inputJsonController.view];
     self.inputJsonController.view.frame = self.window.contentView.bounds;
     

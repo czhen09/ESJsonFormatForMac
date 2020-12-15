@@ -33,7 +33,7 @@
 @property (nonatomic, strong) NSMutableDictionary *propertyArrayDic;
 
 /**
- *  @class 内容，用于在创建类文件的时候，指定当前类里面引用哪些类-->通过遍历propertyClassDic生成
+ *  内容，用于在创建类文件的时候，指定当前类里面引用哪些类-->通过遍历propertyClassDic生成
  */
 @property (nonatomic, copy) NSString *atClassContent;
 
