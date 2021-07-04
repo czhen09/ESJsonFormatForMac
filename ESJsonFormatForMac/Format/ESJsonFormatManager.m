@@ -27,7 +27,7 @@
     NSDictionary *dic = classInfo.classDic;
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isSwift"]) {
-            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
+            [resultStr appendFormat:@"\n%@",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
         }else{
             [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
         }
@@ -103,50 +103,6 @@
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
     }
     return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
-}
-
-
-/**
- *  格式化Swift属性字符串
- *
- *  @param key       JSON里面key字段
- *  @param value     JSON里面key对应的NSDiction或者NSArray
- *  @param classInfo 类信息
- *
- *  @return
- */
-+ (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
-    NSString *typeStr = @"String?";
-    //判断大小写
-    if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
-        key = [key uppercaseString];
-    }
-    if ([value isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
-    }else if([value isKindOfClass:[@(YES) class]]){
-        typeStr = @"Bool";
-        return [NSString stringWithFormat:@"    var %@: %@ = false",key,typeStr];
-    }else if([value isKindOfClass:[NSNumber class]]){
-        NSString *valueStr = [NSString stringWithFormat:@"%@",value];
-        if ([valueStr rangeOfString:@"."].location!=NSNotFound){
-            typeStr = @"Double";
-        }else{
-            typeStr = @"Int";
-        }
-        return [NSString stringWithFormat:@"    var %@: %@ = 0",key,typeStr];
-    }else if([value isKindOfClass:[NSArray class]]){
-        ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
-        NSString *type = childInfo.className;
-        return [NSString stringWithFormat:@"    var %@: [%@]?",key,type==nil?@"String":type];
-    }else if ([value isKindOfClass:[NSDictionary class]]){
-        ESClassInfo *childInfo = classInfo.propertyClassDic[key];
-        typeStr = childInfo.className;
-        if (!typeStr) {
-            typeStr = [key capitalizedString];
-        }
-        return [NSString stringWithFormat:@"    var %@: %@?",key,typeStr];
-    }
-    return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
 }
 
 
@@ -228,33 +184,6 @@
 }
 
 /**
- *  解析.swift文件内容--Swift
- *
- *  @param classInfo 类信息
- *
- *  @return
- */
-+ (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
-    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
-    NSMutableString *result = nil;
-    if (superClassString&&superClassString.length>0) {
-        result = [NSMutableString stringWithFormat:@"@interface %@ : %@\n",classInfo.className,superClassString];
-    }else{
-        result = [NSMutableString stringWithFormat:@"@interface %@ : NSObject\n",classInfo.className];
-    }
-    [result appendString:classInfo.propertyContent];
-    [result appendString:@"\n}"];
-    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
-        [result insertString:@"import UIKit\n\n" atIndex:0];
-        //headerStr
-        NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"swift"]];
-        [result insertString:headerString atIndex:0];
-    }
-    return [result copy];
-}
-
-
-/**
  *  生成 MJExtension 的集合中指定对象的方法
  *
  *  @param classInfo 指定类信息
@@ -285,7 +214,7 @@
             methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",result];
         }else{
             // append method content (objectClassInArray)
-            methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)objectClassInArray{\n    return @{%@};\n}\n",result];
+            methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary *)mj_objectClassInArray{\n    return @{%@};\n}\n",result];
         }
         
         return methodStr;
@@ -321,6 +250,182 @@
     
         return result;
 }
+
+#pragma mark - swift begin
+
+/**
+ *  格式化Swift属性字符串
+ *
+ *  @param key       JSON里面key字段
+ *  @param value     JSON里面key对应的NSDiction或者NSArray
+ *  @param classInfo 类信息
+ *
+ *  @return
+ */
++ (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
+    NSString *typeStr = @"String?";
+    //判断大小写
+    if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+        key = [key uppercaseString];
+    }
+    if ([value isKindOfClass:[NSString class]]) {
+        return [NSString stringWithFormat:@"    @objc var %@: %@",key,typeStr];
+    }else if([value isKindOfClass:[@(YES) class]]){
+        typeStr = @"Bool";
+        return [NSString stringWithFormat:@"    @objc var %@: %@ = false",key,typeStr];
+    }else if([value isKindOfClass:[NSNumber class]]){
+        NSString *valueStr = [NSString stringWithFormat:@"%@",value];
+        if ([valueStr rangeOfString:@"."].location!=NSNotFound){
+            typeStr = @"Double";
+        }else{
+            typeStr = @"Int";
+        }
+        return [NSString stringWithFormat:@"    @objc var %@: %@ = 0",key,typeStr];
+    }else if([value isKindOfClass:[NSArray class]]){
+        ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
+        NSString *type = childInfo.className;
+        return [NSString stringWithFormat:@"    @objc var %@: [%@]?",key,type==nil?@"String":type];
+    }else if ([value isKindOfClass:[NSDictionary class]]){
+        ESClassInfo *childInfo = classInfo.propertyClassDic[key];
+        typeStr = childInfo.className;
+        if (!typeStr) {
+            typeStr = [key capitalizedString];
+        }
+        return [NSString stringWithFormat:@"    @objc var %@: %@?",key,typeStr];
+    }
+    return [NSString stringWithFormat:@"    @objc var %@: %@",key,typeStr];
+}
+
+
+/**
+ *  解析.swift文件内容--Swift
+ *
+ *  @param classInfo 类信息
+ *
+ *  @return
+ */
++ (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
+    NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
+    NSMutableString *result = nil;
+    if (superClassString&&superClassString.length>0) {
+        result = [NSMutableString stringWithFormat:@"class %@: %@ {\n",classInfo.className,superClassString];
+    }else{
+        result = [NSMutableString stringWithFormat:@"\nclass %@: NSObject {\n",classInfo.className];
+    }
+    [result appendString:classInfo.propertyContent];
+    [result appendString:@"\n"];
+    [result appendString:[self parseClassImpContentWithClassInfoForSwift:classInfo]];
+    [result appendString:@"\n}"];
+    if ([ESJsonFormatSetting defaultSetting].outputToFiles) {
+        [result insertString:@"import Foundation\n" atIndex:0];
+        //headerStr
+        NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"swift"]];
+        [result insertString:headerString atIndex:0];
+    }
+    return [result copy];
+}
+
++ (NSString *)parseClassImpContentWithClassInfoForSwift:(ESClassInfo *)classInfo
+{
+    NSMutableString *result = [NSMutableString stringWithString:@""];
+    if ([ESJsonFormatSetting defaultSetting].impOjbClassInArray) {
+        
+        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        
+        if (isYYModel) {
+            
+            NSString *propertyClass = [self methodContentOfObjectClassInArrayWithClassInfoForSwift:classInfo];
+            NSString *customMapper = [self methodContentOfObjectIDInArrayWithClassInfoForSwift:classInfo];
+            
+            if ([propertyClass stringByReplacingOccurrencesOfString:@"" withString:@"\n"].length) {
+                [result appendFormat:@" \n%@",propertyClass];
+            }
+            if ([customMapper stringByReplacingOccurrencesOfString:@"" withString:@"\n"].length) {
+                [result appendFormat:@" \n%@",customMapper];
+            }
+            
+        }else{
+            
+            [result appendFormat:@" \n%@",[self methodContentOfObjectClassInArrayWithClassInfoForSwift:classInfo]];
+        }
+
+    }else{
+        
+    }
+    
+    return [result copy];
+}
+
+/**
+ *  生成 MJExtension 的集合中指定对象的方法 Swift
+ *
+ *  @param classInfo 指定类信息
+ *
+ *  @return
+ */
++ (NSString *)methodContentOfObjectClassInArrayWithClassInfoForSwift:(ESClassInfo *)classInfo{
+    
+
+    if (classInfo.propertyArrayDic.count==0) {
+        return @"";
+    }else{
+        NSMutableString *result = [NSMutableString string];
+        for (NSString *key in classInfo.propertyArrayDic) {
+            ESClassInfo *childClassInfo = classInfo.propertyArrayDic[key];
+            [result appendFormat:@"\"%@\" : %@.self, ",key,childClassInfo.className];
+        }
+        if ([result hasSuffix:@", "]) {
+            result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+        }
+        
+        BOOL isYYModel = [[NSUserDefaults standardUserDefaults] boolForKey:@"isYYModel"];
+        NSString *methodStr = nil;
+        if (isYYModel) {
+            
+            //append method content (objectClassInArray) if YYModel
+            methodStr = [NSString stringWithFormat:@"    @objc static func modelContainerPropertyGenericClass() -> Dictionary<String, Any> {\n        return [%@]\n    }",result];
+        }else{
+            // append method content (objectClassInArray)
+            
+            methodStr = [NSString stringWithFormat:@"    @objc static func mj_objectClassInArray() -> Dictionary<String, Any> {\n        return [%@]\n    }",result];
+        }
+        
+        return methodStr;
+    }
+}
+
+
++ (NSString *)methodContentOfObjectIDInArrayWithClassInfoForSwift:(ESClassInfo *)classInfo{
+    
+
+        NSMutableString *result = [NSMutableString string];
+        NSDictionary *dic = classInfo.classDic;
+         NSLog(@"%@",dic);
+        [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
+        
+           
+            NSLog(@"key====%@",key);
+            NSLog(@"obj====%@",obj);
+            NSLog(@"=============================");
+            if ([ESUppercaseKeyWords containsObject:key] && [ESJsonFormatSetting defaultSetting].uppercaseKeyWordForId) {
+               
+
+                [result appendFormat:@"\"%@\":\"%@\", ",[key uppercaseString],key];
+            }
+            
+        }];
+        
+        if ([result hasSuffix:@", "]) {
+            result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+            NSString *methodStr = [NSString stringWithFormat:@"    @objc static func modelCustomPropertyMapper() -> Dictionary<String, Any> {\n        return [%@]\n    }\n",result];
+            return methodStr;
+        }
+    
+        return result;
+}
+
+#pragma mark - swift end
+
 
 /**
  *  拼装模板信息
@@ -360,7 +465,7 @@
                 [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
             }
         }else{
-            [string appendString:@"import UIKit\n\n"];
+            [string appendString:@"import Foundation\n"];
             NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
             if (superClassString&&superClassString.length>0) {
                 [string appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];

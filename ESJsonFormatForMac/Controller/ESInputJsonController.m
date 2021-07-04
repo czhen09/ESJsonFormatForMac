@@ -685,10 +685,18 @@
                 //如果是 NSArray 取出第一个元素向下遍历
                 NSArray *array = obj;
                 if (array.firstObject) {
-                    NSObject *obj = [array firstObject];
+
+                    //将数组中每个元素有值的key汇合到一起
+                    NSMutableDictionary *useDic = @{}.mutableCopy;
+                    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj2, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if ([obj2 isKindOfClass:NSDictionary.class]) {
+                            [useDic addEntriesFromDictionary:obj2];
+                        }
+                    }];
+
                     //May be 'NSString'，will crash
-                    if ([obj isKindOfClass:[NSDictionary class]]) {
-                        ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:(NSDictionary *)obj];
+                    if ([useDic isKindOfClass:[NSDictionary class]]) {
+                        ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:(NSDictionary *)useDic];
                         [self dealPropertyNameWithClassInfo:childClassInfo];
                         //设置classInfo里面属性类型为 NSArray 情况下，NSArray 内部元素类型的对应的class
                         [classInfo.propertyArrayDic setObject:childClassInfo forKey:key];
@@ -786,7 +794,10 @@
         }else{
         
             //Swift
-            [self.hContentTextView insertText:classInfo.classContentForH];
+            //最顶层的类
+            NSMutableString *result = classInfo.classContentForH.mutableCopy;
+            [result appendString:@"\n"];
+            [self.hContentTextView insertText:result];
             
             //再添加把其他类的的字符串拼接到最后面
             [self.hContentTextView insertText:classInfo.classInsertTextViewContentForH replacementRange:NSMakeRange(self.hContentTextView.string.length, 0)];

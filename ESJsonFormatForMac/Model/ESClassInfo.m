@@ -92,7 +92,7 @@
     NSMutableString *result = [NSMutableString stringWithFormat:@""];
     for (NSString *key in self.propertyClassDic) {
         ESClassInfo *classInfo = self.propertyClassDic[key];
-        [result appendFormat:@"%@\n\n",classInfo.classContentForH];
+        [result appendFormat:@"%@\n",classInfo.classContentForH];
         [result appendString:classInfo.classInsertTextViewContentForH];
     }
     
