@@ -45,7 +45,7 @@
          newMContent = [NSString stringWithFormat:@"%@%@%@",modelStr,mImportStr,mContent];
      }else{
          
-         hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
+         hImportStr = [NSMutableString stringWithString:@"import Foundation\n"];
          NSString *superClassString = [[NSUserDefaults standardUserDefaults] valueForKey:@"SuperClass"];
          if (superClassString&&superClassString.length>0) {
              [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
